@@ -1,0 +1,16 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Resources/cancel.png</file>
+        <file>Resources/cancelAct.png</file>
+        <file>Resources/cancelP.png</file>
+        <file>Resources/eraseAct.png</file>
+        <file>Resources/okAct.png</file>
+        <file>Resources/padButtonShort.png</file>
+        <file>Resources/background.png</file>
+        <file>Resources/lineInLong.png</file>
+        <file>Resources/actionBlue.png</file>
+        <file>Resources/actionRed.png</file>
+        <file>Resources/anotherAcc.png</file>
+        <file>Resources/lineIn.png</file>
+    </qresource>
+</RCC>

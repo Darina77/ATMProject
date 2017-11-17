@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>600</width>
+    <height>450</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">#Form{
+background-image: url(:/Resources/background.png);
+}
+</string>
+  </property>
+  <widget class="QPushButton" name="cancelButt">
+   <property name="geometry">
+    <rect>
+     <x>390</x>
+     <y>370</y>
+     <width>215</width>
+     <height>79</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#cancelButt {
+background-image: url(:Resources/cancel.png);
+border: none;
+}
+#cancelButt:pressed
+{
+   background-image: url(:Resources/cancelP.png);
+  border: none;
+}</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>219</width>
+     <height>79</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QLabel" name="window_2">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>30</y>
+     <width>431</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>KenVector Future</family>
+     <pointsize>25</pointsize>
+     <underline>false</underline>
+     <strikeout>false</strikeout>
+    </font>
+   </property>
+   <property name="text">
+    <string>menu</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="anotherButt">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>390</y>
+     <width>391</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>KenVector Future</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#anotherButt {
+background-image: url(:Resources/anotherAcc.png);
+border: none;
+text-align: left;
+}
+</string>
+   </property>
+   <property name="text">
+    <string>       select another account</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="getMoney">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>200</y>
+     <width>148</width>
+     <height>82</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>KenVector Future</family>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#getMoney{
+background-image: url(:Resources/actionBlue.png);
+border: none;
+text-align: center;
+}
+</string>
+   </property>
+   <property name="text">
+    <string>get
+ money</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="deposit">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>290</y>
+     <width>148</width>
+     <height>82</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>KenVector Future</family>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#deposit{
+background-image: url(:Resources/actionBlue.png);
+border: none;
+text-align: center;
+}
+</string>
+   </property>
+   <property name="text">
+    <string>deposit</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="balance">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>200</y>
+     <width>154</width>
+     <height>82</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>KenVector Future</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#balance{
+background-image: url(:Resources/actionRed.png);
+border: none;
+text-align: center;
+}
+</string>
+   </property>
+   <property name="text">
+    <string>balance &amp;
+ statements</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="payments">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>290</y>
+     <width>154</width>
+     <height>82</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>KenVector Future</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#payments
+{
+background-image: url(:Resources/actionRed.png);
+border: none;
+text-align: center;
+}
+</string>
+   </property>
+   <property name="text">
+    <string>payments</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="transfer">
+   <property name="geometry">
+    <rect>
+     <x>390</x>
+     <y>200</y>
+     <width>154</width>
+     <height>82</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>KenVector Future</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#transfer
+{
+background-image: url(:Resources/actionRed.png);
+border: none;
+text-align: center;
+}
+</string>
+   </property>
+   <property name="text">
+    <string>transfer</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="other">
+   <property name="geometry">
+    <rect>
+     <x>390</x>
+     <y>290</y>
+     <width>154</width>
+     <height>82</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>KenVector Future</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#other{
+background-image: url(:Resources/actionRed.png);
+border: none;
+text-align: center;
+}
+</string>
+   </property>
+   <property name="text">
+    <string>other
+ services</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
