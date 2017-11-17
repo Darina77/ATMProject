@@ -21,10 +21,10 @@ background-image: url(:/Resources/background.png);
   <widget class="QLabel" name="window_2">
    <property name="geometry">
     <rect>
-     <x>70</x>
-     <y>150</y>
+     <x>90</x>
+     <y>250</y>
      <width>431</width>
-     <height>161</height>
+     <height>111</height>
     </rect>
    </property>
    <property name="font">
@@ -36,7 +36,8 @@ background-image: url(:/Resources/background.png);
     </font>
    </property>
    <property name="text">
-    <string>Question in here</string>
+    <string>total balance
+ at the moment</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -97,6 +98,55 @@ border: none;
      <width>219</width>
      <height>79</height>
     </size>
+   </property>
+  </widget>
+  <widget class="QLabel" name="amount">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>140</y>
+     <width>207</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>KenVector Future</family>
+     <pointsize>25</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#amount
+{
+background-image: url(:/Resources/lineIn.png);
+}</string>
+   </property>
+   <property name="text">
+    <string>500</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>340</x>
+     <y>30</y>
+     <width>191</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>KenVector Future</family>
+     <pointsize>25</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>balance</string>
    </property>
   </widget>
  </widget>

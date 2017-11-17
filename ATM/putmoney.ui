@@ -51,7 +51,7 @@ text-align:center;
   <widget class="QPushButton" name="cancelButt">
    <property name="geometry">
     <rect>
-     <x>370</x>
+     <x>390</x>
      <y>370</y>
      <width>215</width>
      <height>79</height>
@@ -473,7 +473,7 @@ border: none;
     </font>
    </property>
    <property name="text">
-    <string>Withdrowal</string>
+    <string>deposit</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -482,7 +482,7 @@ border: none;
   <widget class="QLineEdit" name="lineEdit">
    <property name="geometry">
     <rect>
-     <x>90</x>
+     <x>80</x>
      <y>180</y>
      <width>210</width>
      <height>75</height>
@@ -498,7 +498,7 @@ background-image: url(:/Resources/lineIn.png);
   <widget class="QLabel" name="window_3">
    <property name="geometry">
     <rect>
-     <x>400</x>
+     <x>410</x>
      <y>210</y>
      <width>191</width>
      <height>31</height>

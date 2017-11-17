@@ -11,7 +11,14 @@ FORMS += \
     login.ui \
     pin.ui \
     menu.ui \
-    choose.ui
+    choose.ui \
+    sendmoneyAmount.ui \
+    sendmoneyAccount.ui \
+    other.ui \
+    paymentAmount.ui \
+    paymentAccount.ui \
+    balance.ui \
+    putmoney.ui
 
 SUBDIRS += \
     ATM.pro

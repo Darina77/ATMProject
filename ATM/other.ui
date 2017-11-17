@@ -36,7 +36,9 @@ background-image: url(:/Resources/background.png);
     </font>
    </property>
    <property name="text">
-    <string>Question in here</string>
+    <string>We're sorry no additional
+ services are available at 
+the moment.</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -97,6 +99,30 @@ border: none;
      <width>219</width>
      <height>79</height>
     </size>
+   </property>
+  </widget>
+  <widget class="QLabel" name="window_3">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>20</y>
+     <width>431</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>KenVector Future</family>
+     <pointsize>25</pointsize>
+     <underline>false</underline>
+     <strikeout>false</strikeout>
+    </font>
+   </property>
+   <property name="text">
+    <string>other</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
    </property>
   </widget>
  </widget>
