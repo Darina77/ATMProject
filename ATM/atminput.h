@@ -18,12 +18,10 @@
    // void getMoney();
    // void sendMoney();
    // void showCount();
-
-
  private:
     QSslSocket* out;
     QSslSocket* in;
-    //Ui::Login ui;
+    Ui::Login ui;
  };
 
  #endif
