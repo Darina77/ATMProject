@@ -12,12 +12,5 @@
         <file>Resources/actionRed.png</file>
         <file>Resources/anotherAcc.png</file>
         <file>Resources/lineIn.png</file>
-        <file>Resources/actionBlueP.png</file>
-        <file>Resources/actionRedP.png</file>
-        <file>Resources/anotherAccP.png</file>
-        <file>Resources/cancelActP.png</file>
-        <file>Resources/eraseActP.png</file>
-        <file>Resources/okActP.png</file>
-        <file>Resources/padButtonShortP.png</file>
     </qresource>
 </RCC>
