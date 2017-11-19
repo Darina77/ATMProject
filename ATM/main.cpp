@@ -1,4 +1,4 @@
-#include "atminput.h"
+#include "AtmInput.h"
 #include <QApplication>
 
 int main(int argc, char *argv[])

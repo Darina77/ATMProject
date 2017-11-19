@@ -40,10 +40,9 @@ background-image: url(:/Resources/background.png);
 background-image: url(:Resources/padButtonShort.png);
 border: none;
 }
-
 #num2 :pressed
 {
-   background-image: url(:Resources/padButtonShort.png);
+   background-image: url(:Resources/padButtonShortP.png);
 	border: none;
 }
 </string>
@@ -70,6 +69,12 @@ border: none;
     <string notr="true">#num0{
 background-image: url(:Resources/padButtonShort.png);
 border: none;
+}
+
+#num0 :pressed
+{
+   background-image: url(:Resources/padButtonShortP.png);
+	border: none;
 }
 </string>
    </property>
@@ -165,7 +170,14 @@ background-image: url(:/Resources/lineInLong.png);
     <string notr="true">#eraseAct{
 background-image: url(:/Resources/eraseAct.png);
 border: none;
-}</string>
+}
+
+#eraseAct :pressed
+{
+   background-image: url(:Resources/eraseActP.png);
+	border: none;
+}
+</string>
    </property>
    <property name="text">
     <string/>
@@ -190,7 +202,14 @@ border: none;
     <string notr="true">#cancelAct{
 background-image: url(:/Resources/cancelAct.png);
 border: none;
-}</string>
+}
+
+#cancelAct :pressed
+{
+   background-image: url(:Resources/cancelActP.png);
+	border: none;
+}
+</string>
    </property>
    <property name="text">
     <string/>
@@ -221,6 +240,12 @@ border: none;
 background-image: url(:Resources/padButtonShort.png);
 border: none;
 }
+
+#num7 :pressed
+{
+   background-image: url(:Resources/padButtonShortP.png);
+	border: none;
+}
 </string>
    </property>
    <property name="text">
@@ -245,6 +270,12 @@ border: none;
     <string notr="true">#num4 {
 background-image: url(:Resources/padButtonShort.png);
 border: none;
+}
+
+#num4 :pressed
+{
+   background-image: url(:Resources/padButtonShortP.png);
+	border: none;
 }
 </string>
    </property>
@@ -271,6 +302,12 @@ border: none;
 background-image: url(:Resources/padButtonShort.png);
 border: none;
 }
+
+#num1 :pressed
+{
+   background-image: url(:Resources/padButtonShortP.png);
+	border: none;
+}
 </string>
    </property>
    <property name="text">
@@ -296,6 +333,12 @@ border: none;
 background-image: url(:Resources/padButtonShort.png);
 border: none;
 }
+
+#num5 :pressed
+{
+   background-image: url(:Resources/padButtonShortP.png);
+	border: none;
+}
 </string>
    </property>
    <property name="text">
@@ -320,6 +363,12 @@ border: none;
     <string notr="true">#num9{
 background-image: url(:Resources/padButtonShort.png);
 border: none;
+}
+
+#num9 :pressed
+{
+   background-image: url(:Resources/padButtonShortP.png);
+	border: none;
 }
 </string>
    </property>
@@ -377,6 +426,11 @@ background-image: url(:Resources/padButtonShort.png);
 border: none;
 }
 
+#num6 :pressed
+{
+   background-image: url(:Resources/padButtonShortP.png);
+	border: none;
+}
 </string>
    </property>
    <property name="text">
@@ -402,7 +456,11 @@ border: none;
 background-image: url(:Resources/padButtonShort.png);
 border: none;
 }
-</string>
+#num3 :pressed
+{
+   background-image: url(:Resources/padButtonShortP.png);
+	border: none;
+}</string>
    </property>
    <property name="text">
     <string>3</string>
@@ -422,6 +480,12 @@ border: none;
 {
 background-image: url(:/Resources/okAct.png);
 border: none;
+}
+
+#okAct :pressed
+{
+   background-image: url(:Resources/okActP.png);
+	border: none;
 }</string>
    </property>
    <property name="text">
@@ -482,6 +546,12 @@ border: none;
     <string notr="true">#num8{
 background-image: url(:Resources/padButtonShort.png);
 border: none;
+}
+
+#num8 :pressed
+{
+   background-image: url(:Resources/padButtonShortP.png);
+	border: none;
 }
 </string>
    </property>
