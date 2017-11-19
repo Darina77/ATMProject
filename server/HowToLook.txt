@@ -1,0 +1,14 @@
+The is a sometimes working server on an ws://peroa.dlinkddns.com:40000
+
+In this archive find client.html and open it in your browser.
+1)'Connect'
+2)in left input field type command
+3)in right field type parameters separated by space
+
+chk 1234 1111 		- check the card number 1234, does it has pin 1111?
+inf			- info about last checked card
+
+
+Yes, and 1234 1111 is working example
+
+All other functions are comming soon
