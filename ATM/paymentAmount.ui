@@ -78,383 +78,6 @@ border: none;
     </size>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_5">
-   <property name="geometry">
-    <rect>
-     <x>120</x>
-     <y>310</y>
-     <width>51</width>
-     <height>35</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>KenVector Future</family>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">#pushButton_5{
-background-image: url(:Resources/padButtonShort.png);
-border: none;
-}
-</string>
-   </property>
-   <property name="text">
-    <string>5</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="cancelAct">
-   <property name="geometry">
-    <rect>
-     <x>270</x>
-     <y>350</y>
-     <width>71</width>
-     <height>35</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">#cancelAct{
-background-image: url(:/Resources/cancelAct.png);
-border: none;
-}</string>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="iconSize">
-    <size>
-     <width>71</width>
-     <height>35</height>
-    </size>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="okAct">
-   <property name="geometry">
-    <rect>
-     <x>270</x>
-     <y>270</y>
-     <width>71</width>
-     <height>35</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">#okAct
-{
-background-image: url(:/Resources/okAct.png);
-border: none;
-}</string>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="iconSize">
-    <size>
-     <width>71</width>
-     <height>35</height>
-    </size>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_right">
-   <property name="geometry">
-    <rect>
-     <x>190</x>
-     <y>390</y>
-     <width>51</width>
-     <height>35</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>KenVector Future</family>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">#pushButton_right{
-background-image: url(:Resources/padButtonShort.png);
-border: none;
-}
-</string>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_2">
-   <property name="geometry">
-    <rect>
-     <x>120</x>
-     <y>270</y>
-     <width>51</width>
-     <height>35</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>KenVector Future</family>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">#pushButton_2 {
-background-image: url(:Resources/padButtonShort.png);
-border: none;
-}
-</string>
-   </property>
-   <property name="text">
-    <string>2</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_8">
-   <property name="geometry">
-    <rect>
-     <x>120</x>
-     <y>350</y>
-     <width>51</width>
-     <height>35</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>KenVector Future</family>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">#pushButton_8{
-background-image: url(:Resources/padButtonShort.png);
-border: none;
-}
-</string>
-   </property>
-   <property name="text">
-    <string>8</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_6">
-   <property name="geometry">
-    <rect>
-     <x>190</x>
-     <y>310</y>
-     <width>51</width>
-     <height>35</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>KenVector Future</family>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">#pushButton_6{
-background-image: url(:Resources/padButtonShort.png);
-border: none;
-}
-
-</string>
-   </property>
-   <property name="text">
-    <string>6</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_7">
-   <property name="geometry">
-    <rect>
-     <x>50</x>
-     <y>350</y>
-     <width>51</width>
-     <height>35</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>KenVector Future</family>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">#pushButton_7{
-background-image: url(:Resources/padButtonShort.png);
-border: none;
-}
-</string>
-   </property>
-   <property name="text">
-    <string>7</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="eraseAct">
-   <property name="geometry">
-    <rect>
-     <x>270</x>
-     <y>310</y>
-     <width>71</width>
-     <height>35</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">#eraseAct{
-background-image: url(:/Resources/eraseAct.png);
-border: none;
-}</string>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="iconSize">
-    <size>
-     <width>71</width>
-     <height>35</height>
-    </size>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_3">
-   <property name="geometry">
-    <rect>
-     <x>190</x>
-     <y>270</y>
-     <width>51</width>
-     <height>35</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>KenVector Future</family>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">#pushButton_3 {
-background-image: url(:Resources/padButtonShort.png);
-border: none;
-}
-</string>
-   </property>
-   <property name="text">
-    <string>3</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_9">
-   <property name="geometry">
-    <rect>
-     <x>190</x>
-     <y>350</y>
-     <width>51</width>
-     <height>35</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>KenVector Future</family>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">#pushButton_9{
-background-image: url(:Resources/padButtonShort.png);
-border: none;
-}
-</string>
-   </property>
-   <property name="text">
-    <string>9</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_left">
-   <property name="geometry">
-    <rect>
-     <x>50</x>
-     <y>390</y>
-     <width>51</width>
-     <height>35</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>KenVector Future</family>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">#pushButton_left{
-background-image: url(:Resources/padButtonShort.png);
-border: none;
-}
-</string>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_4">
-   <property name="geometry">
-    <rect>
-     <x>50</x>
-     <y>310</y>
-     <width>51</width>
-     <height>35</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>KenVector Future</family>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">#pushButton_4 {
-background-image: url(:Resources/padButtonShort.png);
-border: none;
-}
-</string>
-   </property>
-   <property name="text">
-    <string>4</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_0">
-   <property name="geometry">
-    <rect>
-     <x>120</x>
-     <y>390</y>
-     <width>51</width>
-     <height>35</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>KenVector Future</family>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">#pushButton_0{
-background-image: url(:Resources/padButtonShort.png);
-border: none;
-}
-</string>
-   </property>
-   <property name="text">
-    <string>0</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_1">
-   <property name="geometry">
-    <rect>
-     <x>50</x>
-     <y>270</y>
-     <width>51</width>
-     <height>35</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>KenVector Future</family>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">#pushButton_1 {
-background-image: url(:Resources/padButtonShort.png);
-border: none;
-}
-</string>
-   </property>
-   <property name="text">
-    <string>1</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="window_2">
    <property name="geometry">
     <rect>
@@ -495,12 +118,12 @@ background-image: url(:/Resources/lineIn.png);
 }</string>
    </property>
   </widget>
-  <widget class="QLabel" name="window_3">
+  <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>410</x>
+     <x>420</x>
      <y>210</y>
-     <width>191</width>
+     <width>181</width>
      <height>31</height>
     </rect>
    </property>
@@ -508,15 +131,469 @@ background-image: url(:/Resources/lineIn.png);
     <font>
      <family>KenVector Future</family>
      <pointsize>25</pointsize>
-     <underline>false</underline>
-     <strikeout>false</strikeout>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#pushButton {
+background-color: none;
+border: none;
+}
+#pushButton:pressed {
+background-color: grey;
+border: none;
+}
+</string>
    </property>
    <property name="text">
     <string>accept</string>
    </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
+  </widget>
+  <widget class="QPushButton" name="pushButton_6">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>310</y>
+     <width>51</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>KenVector Future</family>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#pushButton_6 {
+background-image: url(:Resources/padButtonShort.png);
+border: none;
+}
+#pushButton_6:pressed
+{
+background-image: url(:Resources/padButtonShortP.png);
+border: none;
+}
+</string>
+   </property>
+   <property name="text">
+    <string>6</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_7">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>350</y>
+     <width>51</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>KenVector Future</family>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#pushButton_7 {
+background-image: url(:Resources/padButtonShort.png);
+border: none;
+}
+#pushButton_7:pressed
+{
+background-image: url(:Resources/padButtonShortP.png);
+border: none;
+}
+</string>
+   </property>
+   <property name="text">
+    <string>7</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_0">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>390</y>
+     <width>51</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>KenVector Future</family>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#pushButton_0 {
+background-image: url(:Resources/padButtonShort.png);
+border: none;
+}
+#pushButton_0:pressed
+{
+background-image: url(:Resources/padButtonShortP.png);
+border: none;
+}
+</string>
+   </property>
+   <property name="text">
+    <string>0</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="eraseAct">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>310</y>
+     <width>71</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#eraseAct{
+background-image: url(:/Resources/eraseAct.png);
+border: none;
+}
+#eraseAct:pressed{
+background-image: url(:/Resources/eraseActP.png);
+border: none;
+}</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>71</width>
+     <height>35</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_left">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>390</y>
+     <width>51</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>KenVector Future</family>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#pushButton_left{
+background-image: url(:Resources/padButtonShort.png);
+border: none;
+}
+#pushButton_left:pressed{
+background-image: url(:Resources/padButtonShortP.png);
+border: none;
+}
+</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_4">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>310</y>
+     <width>51</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>KenVector Future</family>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#pushButton_4 {
+background-image: url(:Resources/padButtonShort.png);
+border: none;
+}
+#pushButton_4:pressed
+{
+background-image: url(:Resources/padButtonShortP.png);
+border: none;
+}
+</string>
+   </property>
+   <property name="text">
+    <string>4</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="okAct">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>270</y>
+     <width>71</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#okAct
+{
+background-image: url(:/Resources/okAct.png);
+border: none;
+}
+#okAct:pressed
+{
+background-image: url(:/Resources/okActP.png);
+border: none;
+}</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>71</width>
+     <height>35</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="cancelAct">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>350</y>
+     <width>71</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#cancelAct{
+background-image: url(:/Resources/cancelAct.png);
+border: none;
+}
+#cancelAct:pressed{
+background-image: url(:/Resources/cancelActP.png);
+border: none;
+}</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>71</width>
+     <height>35</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_9">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>350</y>
+     <width>51</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>KenVector Future</family>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#pushButton_9 {
+background-image: url(:Resources/padButtonShort.png);
+border: none;
+}
+#pushButton_9:pressed
+{
+background-image: url(:Resources/padButtonShortP.png);
+border: none;
+}
+</string>
+   </property>
+   <property name="text">
+    <string>9</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_right">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>390</y>
+     <width>51</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>KenVector Future</family>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#pushButton_right{
+background-image: url(:Resources/padButtonShort.png);
+border: none;
+}
+#pushButton_right:pressed{
+background-image: url(:Resources/padButtonShortP.png);
+border: none;
+}
+
+</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_8">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>350</y>
+     <width>51</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>KenVector Future</family>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#pushButton_8 {
+background-image: url(:Resources/padButtonShort.png);
+border: none;
+}
+#pushButton_8:pressed
+{
+background-image: url(:Resources/padButtonShortP.png);
+border: none;
+}
+</string>
+   </property>
+   <property name="text">
+    <string>8</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_1">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>270</y>
+     <width>51</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>KenVector Future</family>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#pushButton_1 {
+background-image: url(:Resources/padButtonShort.png);
+border: none;
+}
+#pushButton_1:pressed
+{
+background-image: url(:Resources/padButtonShortP.png);
+border: none;
+}
+</string>
+   </property>
+   <property name="text">
+    <string>1</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_2">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>270</y>
+     <width>51</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>KenVector Future</family>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#pushButton_2 {
+background-image: url(:Resources/padButtonShort.png);
+border: none;
+}
+#pushButton_2:pressed
+{
+background-image: url(:Resources/padButtonShortP.png);
+border: none;
+}
+</string>
+   </property>
+   <property name="text">
+    <string>2</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_5">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>310</y>
+     <width>51</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>KenVector Future</family>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#pushButton_5 {
+background-image: url(:Resources/padButtonShort.png);
+border: none;
+}
+#pushButton_5:pressed
+{
+background-image: url(:Resources/padButtonShortP.png);
+border: none;
+}
+</string>
+   </property>
+   <property name="text">
+    <string>5</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_3">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>270</y>
+     <width>51</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>KenVector Future</family>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#pushButton_3 {
+background-image: url(:Resources/padButtonShort.png);
+border: none;
+}
+#pushButton_3:pressed
+{
+background-image: url(:Resources/padButtonShortP.png);
+border: none;
+}
+</string>
+   </property>
+   <property name="text">
+    <string>3</string>
    </property>
   </widget>
  </widget>

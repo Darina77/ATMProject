@@ -92,12 +92,17 @@ border: none;
     <string notr="true">#anotherButt {
 background-image: url(:Resources/anotherAcc.png);
 border: none;
-text-align: left;
+text-align: center;
+}
+#anotherButt:pressed {
+background-image: url(:Resources/anotherAccP.png);
+border: none;
+text-align: center;
 }
 </string>
    </property>
    <property name="text">
-    <string>       select another account</string>
+    <string>another account</string>
    </property>
   </widget>
   <widget class="QPushButton" name="getMoney">
@@ -121,6 +126,12 @@ background-image: url(:Resources/actionBlue.png);
 border: none;
 text-align: center;
 }
+#getMoney:pressed{
+background-image: url(:Resources/actionBlueP.png);
+border: none;
+text-align: center;
+}
+
 </string>
    </property>
    <property name="text">
@@ -149,6 +160,12 @@ background-image: url(:Resources/actionBlue.png);
 border: none;
 text-align: center;
 }
+#deposit:pressed
+{
+background-image: url(:Resources/actionBlueP.png);
+border: none;
+text-align: center;
+}
 </string>
    </property>
    <property name="text">
@@ -173,6 +190,11 @@ text-align: center;
    <property name="styleSheet">
     <string notr="true">#balance{
 background-image: url(:Resources/actionRed.png);
+border: none;
+text-align: center;
+}
+#balance:pressed{
+background-image: url(:Resources/actionRedP.png);
 border: none;
 text-align: center;
 }
@@ -205,7 +227,12 @@ background-image: url(:Resources/actionRed.png);
 border: none;
 text-align: center;
 }
-</string>
+#payments:pressed
+{
+background-image: url(:Resources/actionRedP.png);
+border: none;
+text-align: center;
+}</string>
    </property>
    <property name="text">
     <string>payments</string>
@@ -233,6 +260,12 @@ background-image: url(:Resources/actionRed.png);
 border: none;
 text-align: center;
 }
+#transfer:pressed
+{
+background-image: url(:Resources/actionRedP.png);
+border: none;
+text-align: center;
+}
 </string>
    </property>
    <property name="text">
@@ -257,6 +290,12 @@ text-align: center;
    <property name="styleSheet">
     <string notr="true">#other{
 background-image: url(:Resources/actionRed.png);
+border: none;
+text-align: center;
+}
+#other:pressed
+{
+background-image: url(:Resources/actionRedP.png);
 border: none;
 text-align: center;
 }

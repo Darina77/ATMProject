@@ -51,7 +51,7 @@ text-align:center;
   <widget class="QPushButton" name="cancelButt">
    <property name="geometry">
     <rect>
-     <x>370</x>
+     <x>390</x>
      <y>370</y>
      <width>215</width>
      <height>79</height>
@@ -93,8 +93,13 @@ border: none;
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">#pushButton_5{
+    <string notr="true">#pushButton_5 {
 background-image: url(:Resources/padButtonShort.png);
+border: none;
+}
+#pushButton_5:pressed
+{
+background-image: url(:Resources/padButtonShortP.png);
 border: none;
 }
 </string>
@@ -115,6 +120,10 @@ border: none;
    <property name="styleSheet">
     <string notr="true">#cancelAct{
 background-image: url(:/Resources/cancelAct.png);
+border: none;
+}
+#cancelAct:pressed{
+background-image: url(:/Resources/cancelActP.png);
 border: none;
 }</string>
    </property>
@@ -141,6 +150,11 @@ border: none;
     <string notr="true">#okAct
 {
 background-image: url(:/Resources/okAct.png);
+border: none;
+}
+#okAct:pressed
+{
+background-image: url(:/Resources/okActP.png);
 border: none;
 }</string>
    </property>
@@ -173,6 +187,11 @@ border: none;
 background-image: url(:Resources/padButtonShort.png);
 border: none;
 }
+#pushButton_right:pressed{
+background-image: url(:Resources/padButtonShortP.png);
+border: none;
+}
+
 </string>
    </property>
    <property name="text">
@@ -198,6 +217,11 @@ border: none;
 background-image: url(:Resources/padButtonShort.png);
 border: none;
 }
+#pushButton_2:pressed
+{
+background-image: url(:Resources/padButtonShortP.png);
+border: none;
+}
 </string>
    </property>
    <property name="text">
@@ -219,8 +243,13 @@ border: none;
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">#pushButton_8{
+    <string notr="true">#pushButton_8 {
 background-image: url(:Resources/padButtonShort.png);
+border: none;
+}
+#pushButton_8:pressed
+{
+background-image: url(:Resources/padButtonShortP.png);
 border: none;
 }
 </string>
@@ -244,11 +273,15 @@ border: none;
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">#pushButton_6{
+    <string notr="true">#pushButton_6 {
 background-image: url(:Resources/padButtonShort.png);
 border: none;
 }
-
+#pushButton_6:pressed
+{
+background-image: url(:Resources/padButtonShortP.png);
+border: none;
+}
 </string>
    </property>
    <property name="text">
@@ -270,8 +303,13 @@ border: none;
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">#pushButton_7{
+    <string notr="true">#pushButton_7 {
 background-image: url(:Resources/padButtonShort.png);
+border: none;
+}
+#pushButton_7:pressed
+{
+background-image: url(:Resources/padButtonShortP.png);
 border: none;
 }
 </string>
@@ -292,6 +330,10 @@ border: none;
    <property name="styleSheet">
     <string notr="true">#eraseAct{
 background-image: url(:/Resources/eraseAct.png);
+border: none;
+}
+#eraseAct:pressed{
+background-image: url(:/Resources/eraseActP.png);
 border: none;
 }</string>
    </property>
@@ -324,6 +366,11 @@ border: none;
 background-image: url(:Resources/padButtonShort.png);
 border: none;
 }
+#pushButton_3:pressed
+{
+background-image: url(:Resources/padButtonShortP.png);
+border: none;
+}
 </string>
    </property>
    <property name="text">
@@ -345,8 +392,13 @@ border: none;
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">#pushButton_9{
+    <string notr="true">#pushButton_9 {
 background-image: url(:Resources/padButtonShort.png);
+border: none;
+}
+#pushButton_9:pressed
+{
+background-image: url(:Resources/padButtonShortP.png);
 border: none;
 }
 </string>
@@ -374,6 +426,10 @@ border: none;
 background-image: url(:Resources/padButtonShort.png);
 border: none;
 }
+#pushButton_left:pressed{
+background-image: url(:Resources/padButtonShortP.png);
+border: none;
+}
 </string>
    </property>
    <property name="text">
@@ -399,6 +455,11 @@ border: none;
 background-image: url(:Resources/padButtonShort.png);
 border: none;
 }
+#pushButton_4:pressed
+{
+background-image: url(:Resources/padButtonShortP.png);
+border: none;
+}
 </string>
    </property>
    <property name="text">
@@ -420,8 +481,13 @@ border: none;
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">#pushButton_0{
+    <string notr="true">#pushButton_0 {
 background-image: url(:Resources/padButtonShort.png);
+border: none;
+}
+#pushButton_0:pressed
+{
+background-image: url(:Resources/padButtonShortP.png);
 border: none;
 }
 </string>
@@ -447,6 +513,11 @@ border: none;
    <property name="styleSheet">
     <string notr="true">#pushButton_1 {
 background-image: url(:Resources/padButtonShort.png);
+border: none;
+}
+#pushButton_1:pressed
+{
+background-image: url(:Resources/padButtonShortP.png);
 border: none;
 }
 </string>
@@ -495,12 +566,12 @@ background-image: url(:/Resources/lineIn.png);
 }</string>
    </property>
   </widget>
-  <widget class="QLabel" name="window_3">
+  <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>400</x>
+     <x>420</x>
      <y>210</y>
-     <width>191</width>
+     <width>181</width>
      <height>31</height>
     </rect>
    </property>
@@ -508,15 +579,21 @@ background-image: url(:/Resources/lineIn.png);
     <font>
      <family>KenVector Future</family>
      <pointsize>25</pointsize>
-     <underline>false</underline>
-     <strikeout>false</strikeout>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#pushButton {
+background-color: none;
+border: none;
+}
+#pushButton:pressed {
+background-color: grey;
+border: none;
+}
+</string>
    </property>
    <property name="text">
     <string>accept</string>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
    </property>
   </widget>
  </widget>

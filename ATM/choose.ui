@@ -63,6 +63,11 @@ background-image: url(:Resources/anotherAcc.png);
 border: none;
 text-align: center;
 }
+#anotherButt:pressed {
+background-image: url(:Resources/anotherAccP.png);
+border: none;
+text-align: center;
+}
 </string>
    </property>
    <property name="text">
