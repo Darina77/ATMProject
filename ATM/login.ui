@@ -1,24 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Form</class>
- <widget class="QWidget" name="Form">
+ <class>Login</class>
+ <widget class="QWidget" name="Login">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
+    <width>596</width>
     <height>450</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Log In</string>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
   </property>
   <property name="styleSheet">
-   <string notr="true">#Form{
+   <string notr="true">#Login{
 background-image: url(:/Resources/background.png);
 }</string>
   </property>
-  <widget class="QPushButton" name="pushButton_2">
+  <widget class="QPushButton" name="num2">
    <property name="geometry">
     <rect>
      <x>220</x>
@@ -33,9 +36,15 @@ background-image: url(:/Resources/background.png);
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">#pushButton_2 {
+    <string notr="true">#num2 {
 background-image: url(:Resources/padButtonShort.png);
 border: none;
+}
+
+#num2 :pressed
+{
+   background-image: url(:Resources/padButtonShort.png);
+	border: none;
 }
 </string>
    </property>
@@ -43,7 +52,7 @@ border: none;
     <string>2</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_0">
+  <widget class="QPushButton" name="num0">
    <property name="geometry">
     <rect>
      <x>220</x>
@@ -58,7 +67,7 @@ border: none;
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">#pushButton_0{
+    <string notr="true">#num0{
 background-image: url(:Resources/padButtonShort.png);
 border: none;
 }
@@ -118,7 +127,10 @@ border: none;
     <string/>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit">
+  <widget class="QLineEdit" name="CardNumLine">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="geometry">
     <rect>
      <x>30</x>
@@ -127,8 +139,14 @@ border: none;
      <height>75</height>
     </rect>
    </property>
+   <property name="mouseTracking">
+    <bool>false</bool>
+   </property>
+   <property name="acceptDrops">
+    <bool>false</bool>
+   </property>
    <property name="styleSheet">
-    <string notr="true">#lineEdit
+    <string notr="true">#CardNumLine
 {
 background-image: url(:/Resources/lineInLong.png);
 }</string>
@@ -184,7 +202,7 @@ border: none;
     </size>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_7">
+  <widget class="QPushButton" name="num7">
    <property name="geometry">
     <rect>
      <x>150</x>
@@ -199,7 +217,7 @@ border: none;
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">#pushButton_7{
+    <string notr="true">#num7{
 background-image: url(:Resources/padButtonShort.png);
 border: none;
 }
@@ -209,7 +227,7 @@ border: none;
     <string>7</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_4">
+  <widget class="QPushButton" name="num4">
    <property name="geometry">
     <rect>
      <x>150</x>
@@ -224,7 +242,7 @@ border: none;
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">#pushButton_4 {
+    <string notr="true">#num4 {
 background-image: url(:Resources/padButtonShort.png);
 border: none;
 }
@@ -234,7 +252,7 @@ border: none;
     <string>4</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_1">
+  <widget class="QPushButton" name="num1">
    <property name="geometry">
     <rect>
      <x>150</x>
@@ -249,7 +267,7 @@ border: none;
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">#pushButton_1 {
+    <string notr="true">#num1 {
 background-image: url(:Resources/padButtonShort.png);
 border: none;
 }
@@ -259,7 +277,7 @@ border: none;
     <string>1</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_5">
+  <widget class="QPushButton" name="num5">
    <property name="geometry">
     <rect>
      <x>220</x>
@@ -274,7 +292,7 @@ border: none;
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">#pushButton_5{
+    <string notr="true">#num5{
 background-image: url(:Resources/padButtonShort.png);
 border: none;
 }
@@ -284,7 +302,7 @@ border: none;
     <string>5</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_9">
+  <widget class="QPushButton" name="num9">
    <property name="geometry">
     <rect>
      <x>290</x>
@@ -299,7 +317,7 @@ border: none;
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">#pushButton_9{
+    <string notr="true">#num9{
 background-image: url(:Resources/padButtonShort.png);
 border: none;
 }
@@ -339,7 +357,7 @@ text-align:center;
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_6">
+  <widget class="QPushButton" name="num6">
    <property name="geometry">
     <rect>
      <x>290</x>
@@ -354,7 +372,7 @@ text-align:center;
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">#pushButton_6{
+    <string notr="true">#num6{
 background-image: url(:Resources/padButtonShort.png);
 border: none;
 }
@@ -365,7 +383,7 @@ border: none;
     <string>6</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_3">
+  <widget class="QPushButton" name="num3">
    <property name="geometry">
     <rect>
      <x>290</x>
@@ -380,7 +398,7 @@ border: none;
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">#pushButton_3 {
+    <string notr="true">#num3 {
 background-image: url(:Resources/padButtonShort.png);
 border: none;
 }
@@ -446,7 +464,7 @@ border: none;
     </size>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_8">
+  <widget class="QPushButton" name="num8">
    <property name="geometry">
     <rect>
      <x>220</x>
@@ -461,7 +479,7 @@ border: none;
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">#pushButton_8{
+    <string notr="true">#num8{
 background-image: url(:Resources/padButtonShort.png);
 border: none;
 }
@@ -474,8 +492,8 @@ border: none;
   <widget class="QLabel" name="window_2">
    <property name="geometry">
     <rect>
-     <x>160</x>
-     <y>20</y>
+     <x>190</x>
+     <y>30</y>
      <width>431</width>
      <height>31</height>
     </rect>

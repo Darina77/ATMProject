@@ -21,9 +21,9 @@ background-image: url(:/Resources/background.png);
   <widget class="QLabel" name="window_2">
    <property name="geometry">
     <rect>
-     <x>90</x>
+     <x>40</x>
      <y>250</y>
-     <width>431</width>
+     <width>521</width>
      <height>111</height>
     </rect>
    </property>
@@ -103,8 +103,8 @@ border: none;
   <widget class="QLabel" name="amount">
    <property name="geometry">
     <rect>
-     <x>190</x>
-     <y>140</y>
+     <x>200</x>
+     <y>160</y>
      <width>207</width>
      <height>71</height>
     </rect>

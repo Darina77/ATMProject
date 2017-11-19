@@ -1,10 +1,10 @@
-#include "mainwindow.h"
+#include "atminput.h"
 #include <QApplication>
 
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
-    MainWindow mainWindow;
-    mainWindow.showMaximized();
+    AtmInput mainWindow;
+    mainWindow.show();
     return app.exec();
 }
