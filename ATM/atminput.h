@@ -1,27 +1,23 @@
 #ifndef ATMINPUT_H
 #define ATMINPUT_H
+#include <QStackedWidget>
+#include <QCoreApplication>
+#include "shotuserinfo.h"
+#include "login.h"
+#include "pin.h"
+#include "menu.h"
 
-#include <QMainWindow>
-#include <QSslSocket>
-#include "ui_login.h"
-
-
- class AtmInput : public QMainWindow
+ class AtmInput : public QStackedWidget
  {
     Q_OBJECT
  public:
-    explicit AtmInput(QWidget *parent = 0);
- private slots:
-   // void getCardNumber();
-   // void getPin();
-   // void takeMoney();
-   // void getMoney();
-   // void sendMoney();
-   // void showCount();
+    explicit AtmInput(QWidget* parent = 0);
+    void setUser(const QString& cardNum);
+    void blockUser();
+    bool isBlocked() const;
  private:
-    QSslSocket* out;
-    QSslSocket* in;
-    Ui::Login ui;
+     ShotUserInfo _userInfo;
+     //TODO розрахунок купюр?
  };
 
  #endif

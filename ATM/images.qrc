@@ -20,8 +20,4 @@
         <file>Resources/okActP.png</file>
         <file>Resources/padButtonShortP.png</file>
     </qresource>
-	<qresource prefix="/forms">
-		<file>login.ui</file>
-		<file>pin.ui</file>
-	</qresource>
 </RCC>

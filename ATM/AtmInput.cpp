@@ -1,25 +1,34 @@
 #include "AtmInput.h"
-#include <QCoreApplication>
-#include <QUiLoader>
-#include <QFile>
-#include <QVBoxLayout>
 
 AtmInput::AtmInput(QWidget *parent)
-   : QMainWindow(parent), allWidgets(new QStackedWidget)
+   : QStackedWidget(parent), _userInfo("")
 {
-    QWidget* loginWidget = new Login(parent, this);
-    allWidgets->addWidget(loginWidget);
-    setAtmWidget(loginWidget);
-
+    QWidget* login = new Login(parent, this);
+    QWidget* pin = new Pin(parent, this);
+    QWidget* menu = new Menu(parent, this);
+    addWidget(login);
+    addWidget(pin);
+    addWidget(menu);
+    setCurrentIndex(0);
+    setFixedSize(login->size());
 }
 
-void AtmInput::setAtmWidget(QWidget* current)
+void AtmInput::setUser(const QString& cardNum)
 {
-    this->close();
-    allWidgets->currentWidget()->close();
-    allWidgets->setCurrentWidget(current);
-    allWidgets->currentWidget()->show();
+    _userInfo = ShotUserInfo(cardNum);
+    //TODO get from server is it blocked
 }
+
+void AtmInput::blockUser()
+{
+    _userInfo.makeBlocked();
+}
+
+bool AtmInput::isBlocked() const
+{
+    return _userInfo.isBlocked();
+}
+
 
 
 

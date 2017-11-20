@@ -28,10 +28,22 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-    AtmInput.cpp
+    AtmInput.cpp \
+    login.cpp \
+    pin.cpp \
+    menu.cpp \
+    getmoney.cpp \
+    balance.cpp
 
 HEADERS += \
-    atminput.h
+    AtmInput.h \
+    login.h \
+    login.h \
+    pin.h \
+    menu.h\
+    shotuserinfo.h \
+    getmoney.h \
+    balance.h
 
 FORMS += \
     balance.ui \

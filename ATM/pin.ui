@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Form</class>
- <widget class="QWidget" name="Form">
+ <class>Pin</class>
+ <widget class="QWidget" name="Pin">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -14,7 +14,7 @@
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">#Form{
+   <string notr="true">#Pin{
 background-image: url(:/Resources/background.png);
 }</string>
   </property>
@@ -119,13 +119,24 @@ border: none;
    </property>
   </widget>
   <widget class="QLineEdit" name="lineEdit">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="geometry">
     <rect>
-     <x>80</x>
+     <x>39</x>
      <y>180</y>
-     <width>210</width>
+     <width>211</width>
      <height>75</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>24</pointsize>
+    </font>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
    </property>
    <property name="styleSheet">
     <string notr="true">#lineEdit
@@ -135,6 +146,12 @@ background-image: url(:/Resources/lineIn.png);
    </property>
    <property name="text">
     <string/>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <property name="readOnly">
+    <bool>true</bool>
    </property>
   </widget>
   <widget class="QPushButton" name="eraseAct">
@@ -474,25 +491,25 @@ border: none;
     <string>8</string>
    </property>
   </widget>
-  <widget class="QLabel" name="window_2">
+  <widget class="QLabel" name="info">
    <property name="geometry">
     <rect>
-     <x>410</x>
-     <y>210</y>
-     <width>191</width>
-     <height>31</height>
+     <x>40</x>
+     <y>150</y>
+     <width>211</width>
+     <height>21</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <family>KenVector Future</family>
-     <pointsize>25</pointsize>
+     <pointsize>12</pointsize>
      <underline>false</underline>
      <strikeout>false</strikeout>
     </font>
    </property>
    <property name="text">
-    <string>accept</string>
+    <string/>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
