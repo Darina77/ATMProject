@@ -14,7 +14,7 @@
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">#Form{
+   <string notr="true">#GetMoney{
 background-image: url(:/Resources/background.png);
 }</string>
   </property>
@@ -22,7 +22,7 @@ background-image: url(:/Resources/background.png);
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>100</y>
+     <y>90</y>
      <width>371</width>
      <height>51</height>
     </rect>
@@ -486,16 +486,24 @@ border: none;
    <property name="geometry">
     <rect>
      <x>80</x>
-     <y>170</y>
+     <y>190</y>
      <width>210</width>
      <height>75</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>24</pointsize>
+    </font>
    </property>
    <property name="styleSheet">
     <string notr="true">#lineEdit
 {
 background-image: url(:/Resources/lineIn.png);
 }</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
    </property>
    <property name="readOnly">
     <bool>true</bool>
@@ -504,10 +512,10 @@ background-image: url(:/Resources/lineIn.png);
   <widget class="QLabel" name="info">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>150</y>
-     <width>371</width>
-     <height>21</height>
+     <x>10</x>
+     <y>140</y>
+     <width>571</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="font">

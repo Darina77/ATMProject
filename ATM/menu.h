@@ -27,6 +27,8 @@ class Menu : public QWidget
 
     void on_anotherButt_clicked();
 
+    void on_cancelButt_clicked();
+
 private:
         Ui::Menu* _ui;
         AtmInput* _ai;

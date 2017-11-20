@@ -1,17 +1,18 @@
-#ifndef GETMONEY_H
-#define GETMONEY_H
+#ifndef PAYMENTAMOUNT_H
+#define PAYMENTAMOUNT_H
 #include <QWidget>
-#include "ui_getmoney.h"
+#include "ui_paymentAmount.h"
 #include "AtmInput.h"
 class AtmInput;
 
-class GetMoney: public QWidget
+class PaymentAmount: public QWidget
 {
  Q_OBJECT
  public:
-    explicit GetMoney(QWidget *parent = 0, AtmInput *ai = 0);
-    ~GetMoney();
+    explicit PaymentAmount(QWidget *parent = 0, AtmInput *ai = 0);
+    ~PaymentAmount();
  private slots:
+
     void on_pushButton_1_clicked();
 
     void on_pushButton_2_clicked();
@@ -32,25 +33,26 @@ class GetMoney: public QWidget
 
     void on_pushButton_0_clicked();
 
+    void on_cancelButt_clicked();
+
     void on_okAct_clicked();
 
     void on_eraseAct_clicked();
 
     void on_cancelAct_clicked();
 
-    void on_cancelButt_clicked();
-
 private:
-    Ui::GetMoney* _ui;
-    AtmInput* _ai;
-    QString _strAmount;
-    unsigned int _amount;
-    unsigned int _count;
-    const unsigned int _charLimit = 4;
-    const unsigned int _amountLimit = 5000;
-    void enterNumber(unsigned char num);
-    unsigned int getSum();
-    void setMessege(const QString&);
+   Ui::PaymentAmount* _ui;
+   AtmInput* _ai;
+   QString _strAmount;
 
+   unsigned int _amount;
+   unsigned int _count;
+   const unsigned int _charLimit = 4;
+   const unsigned int _amountLimit = 5000;
+   void enterNumber(unsigned char num);
+   bool sendSendSum();
+   void setMessege(const QString&);
 };
-#endif // GETMONEY_H
+
+#endif // PAYMENTAMOUNT_H

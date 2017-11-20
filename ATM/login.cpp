@@ -30,7 +30,11 @@ void Login::on_okAct_clicked()
         {
             this->close();
             _ai->setUser(_login);
+            _login =  "";
+            _ui->CardNumLine->setText(_login);
+            _count = 0;
             _ai->setCurrentIndex(1);
+
         } else
         {
             setMessege("No such card number");
@@ -95,7 +99,6 @@ void Login::on_num0_clicked()
 
 void Login::on_eraseAct_clicked()
 {
-
     if(_count > 0)
     {
         int loginSize = _login.size();
@@ -107,11 +110,6 @@ void Login::on_eraseAct_clicked()
         if(loginSize > 1){
             _login.remove(loginSize-1, loginSize-1);
             loginSize--;
-            if (_login.at(loginSize-1) == ' ')
-            {
-                _login.remove(loginSize-1, loginSize-1);
-                loginSize--;
-            }
         } else _login =  "";
 
         _ui->CardNumLine->setText(_login);

@@ -11,12 +11,15 @@ class Balance: public QWidget
 public:
     explicit Balance(QWidget *parent = 0, AtmInput *ai = 0);
     ~Balance();
+    void showEvent(QShowEvent *ev);
 private slots:
-  void on_anotherButt_clicked();
-  void on_cancelButt_clicked();
+
+    void on_anotherButt_clicked();
+    void on_cancelButt_clicked();
+
 private:
     Ui::Balance* _ui;
     AtmInput* _ai;
-    QString& getBalance();
+    QString getBalance();
 };
 #endif // BALANCE_H

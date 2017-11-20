@@ -33,7 +33,13 @@ SOURCES += \
     pin.cpp \
     menu.cpp \
     getmoney.cpp \
-    balance.cpp
+    balance.cpp \
+    putmoney.cpp \
+    other.cpp \
+    sendmoneyaccount.cpp \
+    sendmoneyamount.cpp \
+    paymentaccount.cpp \
+    paymentamount.cpp
 
 HEADERS += \
     AtmInput.h \
@@ -43,7 +49,13 @@ HEADERS += \
     menu.h\
     shotuserinfo.h \
     getmoney.h \
-    balance.h
+    balance.h \
+    putmoney.h \
+    other.h \
+    sendmoneyaccount.h \
+    sendmoneyamount.h \
+    paymentaccount.h \
+    paymentamount.h
 
 FORMS += \
     balance.ui \

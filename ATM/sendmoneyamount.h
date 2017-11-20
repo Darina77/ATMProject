@@ -1,16 +1,16 @@
-#ifndef GETMONEY_H
-#define GETMONEY_H
+#ifndef SENDMONEYAMOUNT_H
+#define SENDMONEYAMOUNT_H
 #include <QWidget>
-#include "ui_getmoney.h"
+#include "ui_sendmoneyAmount.h"
 #include "AtmInput.h"
 class AtmInput;
 
-class GetMoney: public QWidget
+class SendMoneyAmount: public QWidget
 {
  Q_OBJECT
  public:
-    explicit GetMoney(QWidget *parent = 0, AtmInput *ai = 0);
-    ~GetMoney();
+    explicit SendMoneyAmount(QWidget *parent = 0, AtmInput *ai = 0);
+    ~SendMoneyAmount();
  private slots:
     void on_pushButton_1_clicked();
 
@@ -41,16 +41,17 @@ class GetMoney: public QWidget
     void on_cancelButt_clicked();
 
 private:
-    Ui::GetMoney* _ui;
-    AtmInput* _ai;
-    QString _strAmount;
-    unsigned int _amount;
-    unsigned int _count;
-    const unsigned int _charLimit = 4;
-    const unsigned int _amountLimit = 5000;
-    void enterNumber(unsigned char num);
-    unsigned int getSum();
-    void setMessege(const QString&);
+   Ui::SendMoneyAmount* _ui;
+   AtmInput* _ai;
+   QString _strAmount;
 
+   unsigned int _amount;
+   unsigned int _count;
+   const unsigned int _charLimit = 4;
+   const unsigned int _amountLimit = 5000;
+   void enterNumber(unsigned char num);
+   bool sendSendSum();
+   void setMessege(const QString&);
 };
-#endif // GETMONEY_H
+
+#endif // SENDMONEYAMOUNT_H
