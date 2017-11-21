@@ -139,10 +139,23 @@ border: none;
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>170</y>
+     <y>190</y>
      <width>511</width>
      <height>75</height>
     </rect>
+   </property>
+   <property name="baseSize">
+    <size>
+     <width>50</width>
+     <height>50</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>24</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
    </property>
    <property name="mouseTracking">
     <bool>false</bool>
@@ -150,11 +163,26 @@ border: none;
    <property name="acceptDrops">
     <bool>false</bool>
    </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
    <property name="styleSheet">
     <string notr="true">#CardNumLine
 {
 background-image: url(:/Resources/lineInLong.png);
 }</string>
+   </property>
+   <property name="maxLength">
+    <number>20</number>
+   </property>
+   <property name="cursorPosition">
+    <number>0</number>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <property name="readOnly">
+    <bool>true</bool>
    </property>
   </widget>
   <widget class="QPushButton" name="eraseAct">
@@ -379,7 +407,7 @@ border: none;
   <widget class="QLabel" name="action">
    <property name="geometry">
     <rect>
-     <x>30</x>
+     <x>10</x>
      <y>110</y>
      <width>321</width>
      <height>51</height>
@@ -581,6 +609,49 @@ border: none;
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="info">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>160</y>
+     <width>491</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="palette">
+    <palette>
+     <active/>
+     <inactive/>
+     <disabled/>
+    </palette>
+   </property>
+   <property name="font">
+    <font>
+     <family>KenVector Future</family>
+     <pointsize>16</pointsize>
+     <underline>false</underline>
+     <strikeout>false</strikeout>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#action{
+background: none;
+text-align:center;
+}</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <property name="indent">
+    <number>0</number>
    </property>
   </widget>
  </widget>

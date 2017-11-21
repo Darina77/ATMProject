@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Form</class>
- <widget class="QWidget" name="Form">
+ <class>Balance</class>
+ <widget class="QWidget" name="Balance">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -14,14 +14,14 @@
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">#Form{
+   <string notr="true">#Balance{
 background-image: url(:/Resources/background.png);
 }</string>
   </property>
   <widget class="QLabel" name="window_2">
    <property name="geometry">
     <rect>
-     <x>40</x>
+     <x>50</x>
      <y>250</y>
      <width>521</width>
      <height>111</height>
@@ -101,6 +101,9 @@ border: none;
    </property>
   </widget>
   <widget class="QLabel" name="amount">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
    <property name="geometry">
     <rect>
      <x>200</x>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Form</class>
- <widget class="QWidget" name="Form">
+ <class>PaymentAccount</class>
+ <widget class="QWidget" name="PaymentAccount">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -119,19 +119,33 @@ border: none;
    </property>
   </widget>
   <widget class="QLineEdit" name="lineEdit">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>170</y>
+     <y>190</y>
      <width>511</width>
      <height>75</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>24</pointsize>
+    </font>
    </property>
    <property name="styleSheet">
     <string notr="true">#lineEdit
 {
 background-image: url(:/Resources/lineInLong.png);
 }</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <property name="readOnly">
+    <bool>true</bool>
    </property>
   </widget>
   <widget class="QPushButton" name="eraseAct">
@@ -313,7 +327,7 @@ border: none;
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>110</y>
+     <y>100</y>
      <width>391</width>
      <height>51</height>
     </rect>
@@ -490,6 +504,36 @@ border: none;
    </property>
    <property name="text">
     <string>payment</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="info">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>160</y>
+     <width>491</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>KenVector Future</family>
+     <pointsize>14</pointsize>
+     <underline>false</underline>
+     <strikeout>false</strikeout>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#action{
+background: none;
+text-align:center;
+}</string>
+   </property>
+   <property name="text">
+    <string/>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>

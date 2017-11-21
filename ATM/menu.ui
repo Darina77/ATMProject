@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Form</class>
- <widget class="QWidget" name="Form">
+ <class>Menu</class>
+ <widget class="QWidget" name="Menu">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -14,7 +14,8 @@
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">#Form{
+   <string notr="true">#Menu
+{
 background-image: url(:/Resources/background.png);
 }
 </string>

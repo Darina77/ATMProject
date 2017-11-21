@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Form</class>
- <widget class="QWidget" name="Form">
+ <class>SendMoneyAmount</class>
+ <widget class="QWidget" name="SendMoneyAmount">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -21,8 +21,8 @@ background-image: url(:/Resources/background.png);
   <widget class="QLabel" name="action">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>120</y>
+     <x>-10</x>
+     <y>90</y>
      <width>371</width>
      <height>51</height>
     </rect>
@@ -480,6 +480,9 @@ border: none;
    </property>
   </widget>
   <widget class="QLineEdit" name="lineEdit">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="geometry">
     <rect>
      <x>80</x>
@@ -488,32 +491,43 @@ border: none;
      <height>75</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>24</pointsize>
+    </font>
+   </property>
    <property name="styleSheet">
     <string notr="true">#lineEdit
 {
 background-image: url(:/Resources/lineIn.png);
 }</string>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <property name="readOnly">
+    <bool>true</bool>
+   </property>
   </widget>
-  <widget class="QLabel" name="window_3">
+  <widget class="QLabel" name="info">
    <property name="geometry">
     <rect>
-     <x>410</x>
-     <y>210</y>
-     <width>191</width>
-     <height>31</height>
+     <x>20</x>
+     <y>140</y>
+     <width>301</width>
+     <height>21</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <family>KenVector Future</family>
-     <pointsize>25</pointsize>
+     <pointsize>14</pointsize>
      <underline>false</underline>
      <strikeout>false</strikeout>
     </font>
    </property>
    <property name="text">
-    <string>accept</string>
+    <string/>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>

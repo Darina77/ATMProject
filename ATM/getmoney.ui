@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Form</class>
- <widget class="QWidget" name="Form">
+ <class>GetMoney</class>
+ <widget class="QWidget" name="GetMoney">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -14,15 +14,15 @@
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">#Form{
+   <string notr="true">#GetMoney{
 background-image: url(:/Resources/background.png);
 }</string>
   </property>
   <widget class="QLabel" name="action">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>120</y>
+     <x>0</x>
+     <y>90</y>
      <width>371</width>
      <height>51</height>
     </rect>
@@ -51,7 +51,7 @@ text-align:center;
   <widget class="QPushButton" name="cancelButt">
    <property name="geometry">
     <rect>
-     <x>370</x>
+     <x>390</x>
      <y>370</y>
      <width>215</width>
      <height>79</height>
@@ -458,8 +458,8 @@ border: none;
   <widget class="QLabel" name="window_2">
    <property name="geometry">
     <rect>
-     <x>170</x>
-     <y>20</y>
+     <x>190</x>
+     <y>30</y>
      <width>431</width>
      <height>31</height>
     </rect>
@@ -480,13 +480,21 @@ border: none;
    </property>
   </widget>
   <widget class="QLineEdit" name="lineEdit">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="geometry">
     <rect>
-     <x>90</x>
-     <y>180</y>
+     <x>80</x>
+     <y>190</y>
      <width>210</width>
      <height>75</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>24</pointsize>
+    </font>
    </property>
    <property name="styleSheet">
     <string notr="true">#lineEdit
@@ -494,26 +502,38 @@ border: none;
 background-image: url(:/Resources/lineIn.png);
 }</string>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <property name="readOnly">
+    <bool>true</bool>
+   </property>
   </widget>
-  <widget class="QLabel" name="window_3">
+  <widget class="QLabel" name="info">
    <property name="geometry">
     <rect>
-     <x>400</x>
-     <y>210</y>
-     <width>191</width>
-     <height>31</height>
+     <x>10</x>
+     <y>140</y>
+     <width>571</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <family>KenVector Future</family>
-     <pointsize>25</pointsize>
+     <pointsize>14</pointsize>
      <underline>false</underline>
      <strikeout>false</strikeout>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true">#action{
+background: none;
+text-align:center;
+}</string>
+   </property>
    <property name="text">
-    <string>accept</string>
+    <string/>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>

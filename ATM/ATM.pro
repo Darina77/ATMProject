@@ -28,10 +28,34 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-    AtmInput.cpp
+    AtmInput.cpp \
+    login.cpp \
+    pin.cpp \
+    menu.cpp \
+    getmoney.cpp \
+    balance.cpp \
+    putmoney.cpp \
+    other.cpp \
+    sendmoneyaccount.cpp \
+    sendmoneyamount.cpp \
+    paymentaccount.cpp \
+    paymentamount.cpp
 
 HEADERS += \
-    atminput.h
+    AtmInput.h \
+    login.h \
+    login.h \
+    pin.h \
+    menu.h\
+    shotuserinfo.h \
+    getmoney.h \
+    balance.h \
+    putmoney.h \
+    other.h \
+    sendmoneyaccount.h \
+    sendmoneyamount.h \
+    paymentaccount.h \
+    paymentamount.h
 
 FORMS += \
     balance.ui \
