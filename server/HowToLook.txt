@@ -6,8 +6,9 @@ In this archive find client.html and open it in your browser.
 3)in right field type parameters separated by space
 
 chk 1234 1111 		- check the card number 1234, does it has pin 1111?
+chb			- check balance on last checked card
 inf			- info about last checked card
-
+help			- for help
 
 Yes, and 1234 1111 is working example
 

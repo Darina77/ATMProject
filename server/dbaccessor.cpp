@@ -2,10 +2,17 @@
 
 #include "userdata.h"
 
+#include <QFile>
+#include <QDebug>
+#include <QJsonDocument>
+#include <QJsonArray>
+#include <QJsonObject>
+
+#define DB_FILE_PATH "D:/db/"
+
+
 DBAccessor::DBAccessor()
 {
-    _cardsCash["1234"] = "1234<$>1111<$>Volodimir<$>19.11.2017<$><$>UA-0.01";
-    _cardsCash["0000"] = "0000<$><$>everyone<$>19.11.2017<$><$>UA-0.01";
 }
 DBAccessor::~DBAccessor()
 {
@@ -13,30 +20,73 @@ DBAccessor::~DBAccessor()
 
 UserData* DBAccessor::takeUD(QString &cardNum)
 {
-    if (_cardsCash.keys().contains(cardNum))
+    bool flag = false;
+    flag =_cardsCash.keys().contains(cardNum);
+
+    if(!flag)
     {
-        QStringList sl= _cardsCash[cardNum].split("<$>");
-        return new UserData(sl[0], sl[1],sl[2],sl[3], sl[4], sl[5]);
+        QJsonObject jo = dbGet(cardNum);
+        if (!jo.isEmpty())
+        {
+            _cardsCash[cardNum] = jo;
+            flag = true;
+        }
+    }
+
+    if (flag)
+    {
+        const QJsonObject& jo = _cardsCash[cardNum];
+        return new UserData(
+                jo["cardNum"].toString(),
+                jo["pin"].toString(),
+                jo["owner"].toString(),
+                jo["date"].toString(),
+                jo["daemons"].toString(),
+                jo["money"].toString()
+                    );
     }
 
     return 0;
 }
 void DBAccessor::putUD(UserData* ud)
 {
-    QString newUd;
-
-    newUd.append(ud->cardNum());
-    newUd.append("<$>");
-    newUd.append(ud->pin());
-    newUd.append("<$>");
-    newUd.append(ud->owner());
-    newUd.append("<$>");
-    newUd.append(ud->date());
-    newUd.append("<$>");
-    newUd.append(ud->daemons());
-    newUd.append("<$>");
-    newUd.append(ud->money());
-
-    _cardsCash[ud->cardNum()] = newUd;
+    QJsonObject jo = ud->toJsonObject();
+    _cardsCash[jo["cardNum"].toString()]=jo;
+    dbPut(jo);
     return;
+}
+
+QJsonObject DBAccessor::dbGet(QString cardNum)
+{
+    QString filename(DB_FILE_PATH);
+    filename.append(cardNum);
+    QFile file(filename);
+    if (file.exists())
+    {
+        file.open(QFile::ReadOnly);
+        QJsonObject jo = QJsonDocument::fromJson(file.readAll()).object();
+        file.close();
+        return jo;
+    };
+    QJsonObject empty;
+    return empty;
+}
+void DBAccessor::dbPut(const QJsonObject& jsonObj)
+{
+    if (jsonObj["cardNum"].isUndefined())
+    {
+        qDebug()<<"dbPut error(1)";
+        return;
+    }
+
+    QString filename(DB_FILE_PATH);
+    filename.append(jsonObj["cardNum"].toString());
+
+    QFile file (filename);
+    if (!file.open(QFile::WriteOnly)){
+        qDebug() <<"dbPut file openning error";
+    }
+    file.write(QJsonDocument(jsonObj).toJson());
+    file.flush();
+    file.close();
 }

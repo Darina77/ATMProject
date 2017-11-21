@@ -17,6 +17,7 @@ crt (Type1) (Type2) (Amount) развратить (convert, Т1- скажем, �
 #define MYPARSER_H
 
 #include <QObject>
+
 class DBAccessor;
 class UserData;
 
@@ -36,8 +37,13 @@ public slots:
 private:
     DBAccessor* _db;
     UserData* _lud;
+    bool _rigthPin;
+
     QString check(QString number, QString pin);
     QString info();
+    QString checkBalance();
+
+    QString errMess(QString);
 };
 
 #endif // MYPARSER_H

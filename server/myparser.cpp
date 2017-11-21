@@ -2,6 +2,11 @@
 #include "dbaccessor.h"
 #include "userdata.h"
 
+
+#include <QJsonObject>
+#include <QJsonDocument>
+#include <QJsonArray>
+
 #include <stdexcept>
 /*
 форматы запроса атм
@@ -10,14 +15,20 @@ chk (номер)(пин) - сверить номер и пин с тем что 
 ada (desu) добавить демона(add daemon, daemon as string)
 uda (desu) (desu) изменить демону (update daemon)
 kda (desu) убить демона (kill daemon,  salve the prist)
-wdw (amount) снять деньгу (withdraw)
+wdw (Type-amount) снять деньгу (withdraw)
+pmo (Type-amount) начилить деньги(put money)
 chb проверить баланс.
 chb (Type)
-crt (Type1) (Type2) (Amount) развратить (convert, Т1- скажем, доллар, Т2 - грн)
+crt (Type1-Amount) (Type2) развратить (convert, Т1- скажем, доллар, Т2 - грн)
 
 
 inf вся инфа
 */
+#define CHECK_LUD \
+    \
+    if(_lud==0) return errMess("ExecutionError: u need to chk smth first");\
+    if (!_rigthPin) return errMess ("Wrong pin");
+
 
 MyParser::MyParser(DBAccessor *db, QObject *parent) : QObject(parent), _db (db), _lud(0)
 {
@@ -32,9 +43,16 @@ MyParser::~MyParser()
 
 QString MyParser ::parse(QString in)
 {
-    if (in.size()< 3)
-        return ("Parsing error(1): too short");
+    QJsonObject jo;
+    QJsonDocument jd;
+    jo["res"]=false;
 
+    if (in.size()< 3)
+    {
+        jo["reason"]="Parsing error(1): too short";
+        jd.setObject(jo);
+        return jd.toJson();
+    }
     QStringList slist= in.split(" ");
 
     try {
@@ -44,22 +62,43 @@ QString MyParser ::parse(QString in)
             if (slist.length()>2)
             return check(slist[1], slist[2]);
             else throw std::length_error("calling check");
-        }
-        if (comp == "inf")
+        }else if (comp == "inf")
             return info();
+        else if (comp == "chb"){
+            return checkBalance();
+        } else if (comp=="help")
+        {
+            return
+"форматы запроса атм\n\
+\n\
+chk (номер)(пин) - сверить номер и пин с тем что в базе(check)\n\
+ada (desu) добавить демона(add daemon, daemon as string)\n\
+uda (desu) (desu) изменить демону (update daemon)\n\
+kda (desu) убить демона (kill daemon,  salve the prist)\n\
+wdw (Type-amount) снять деньгу (withdraw)\n\
+pmo (Type-amount) начилить деньги(put money)\n\
+chb проверить баланс.\n\
+chb (Type)\n\
+crt (Type1-Amount) (Type2) развратить (convert, Т1- скажем, доллар, Т2 - грн)\n\
+\n\
+\n\
+inf вся инфа\n\
+help справка";
+        }
 
     } catch (...) {
-        return "Parsing error(2): array out of bound";
+        jo["reason"]="Parsing error(2)";
+        jd.setObject(jo);
+        return jd.toJson();
     }
-
-    return "Parsing error(3) : undef operation";
+    jo["reason"]="Parsing error(3) : undef operation";
+    jd.setObject(jo);
+    return jd.toJson();
 }
 
 
 QString MyParser::check(QString number, QString pin){
-    const char* True = "True";
-    const char* False = "False";
-
+    _rigthPin=false;
     if (_lud == 0 || number!=_lud->cardNum()){
         if (_lud!=0)
             delete _lud;
@@ -67,37 +106,55 @@ QString MyParser::check(QString number, QString pin){
     }
 
     if (_lud==0)
-        //return False;
-        return "ExecutionError: Can't find such card number";
-
+    {
+        return errMess("Can't find such card number");
+    }
     if (pin == _lud->pin())
     {
-        return True;
+        _rigthPin=true;
+        QJsonObject jo;
+        QJsonDocument jd;
+        jo["res"]=true;
+        jd.setObject(jo);
+        return jd.toJson();
     }
 
-    return False;
+    return errMess("Wrong pin");
 }
 
 QString MyParser::info()
 {
-    if (_lud==0)
-        return "ExecutionError: u need to chk smth first";
+    CHECK_LUD
 
-    QString res;
-
-    res.append("{cardNum:");
-    res.append(_lud->cardNum());
-    res.append(", pin:");
-    res.append(_lud->pin());
-    res.append(", owner:");
-    res.append(_lud->owner());
-    res.append(", regDate:");
-    res.append(_lud->date());
-    res.append(", daemons:");
-    res.append(_lud->daemons());
-    res.append(", money:");
-    res.append(_lud->money());
-    res.append("}");
-
-    return res;
+    QJsonObject jo= (_lud->toJsonObject());
+    jo["res"]=true;
+    return QJsonDocument(jo).toJson();
 }
+QString MyParser::checkBalance()
+{
+    CHECK_LUD
+
+    QJsonObject jo;
+    jo["res"] = true;
+
+    QJsonArray ja;
+    foreach(const QString val, _lud->money().split("_"))
+    {
+        ja.append(val);
+    }
+
+    jo["values"]=ja;
+
+    QJsonDocument jd(jo);
+    return jd.toJson();
+}
+
+QString MyParser::errMess(QString mes)
+{
+    QJsonObject jo;
+    jo["res"]=false;
+    jo["reason"]=mes;
+    return QJsonDocument(jo).toJson();
+}
+
+#undef CHECK_LUD

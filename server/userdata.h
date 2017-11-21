@@ -2,6 +2,8 @@
 #define USERDATA_H
 
 #include <QString>
+#include <QJsonObject>
+#include <QJsonDocument>
 
 class UserData {
 public:
@@ -23,6 +25,21 @@ public:
     void setDaemons(QString in) {_daemons = in;}
     void setMoney(QString in) {_money = in;}
 
+    QString toJson()
+    {
+        return QJsonDocument(toJsonObject()).toJson();
+    }
+    QJsonObject toJsonObject()
+    {
+        QJsonObject jo;
+        jo["cardNum"]=cardNum();
+        jo["pin"]=pin();
+        jo["owner"]=owner();
+        jo["date"]=date();
+        jo["daemons"]=daemons();
+        jo["money"]=money();
+        return jo;
+    }
 
 private:
     UserData(const UserData&);
@@ -36,6 +53,7 @@ private:
     QString _money;
 
 };
+
 
 /*
 какая информация завязана на карточку?

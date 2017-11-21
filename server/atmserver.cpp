@@ -54,7 +54,6 @@
 
 QT_USE_NAMESPACE
 
-//! [constructor]
 AtmServer::AtmServer(quint16 port, QObject *parent) :
     QObject(parent),
     m_pWebSocketServer(Q_NULLPTR),
@@ -85,9 +84,7 @@ AtmServer::~AtmServer()
 
     qDeleteAll(m_clients.begin(), m_clients.end());
 }
-//! [constructor]
 
-//! [onNewConnection]
 void AtmServer::onNewConnection()
 {
     QWebSocket *pSocket = m_pWebSocketServer->nextPendingConnection();
@@ -98,24 +95,13 @@ void AtmServer::onNewConnection()
     m_clients << pSocket;
     m_parsers[pSocket] = new MyParser(m_dbaccessor);
 }
-//! [onNewConnection]
 
-//! [processMessage]
 void AtmServer::processMessage(QString message)
 {
     QWebSocket *pSender = qobject_cast<QWebSocket *>(sender());
-    /*for (QWebSocket *pClient : qAsConst(m_clients)) {
-        if (pClient != pSender) //don't echo message back to sender
-        {
-            pClient->sendTextMessage(message);
-        }
-    }*/
-
     pSender ->sendTextMessage(m_parsers[pSender]->parse(message));
 }
-//! [processMessage]
 
-//! [socketDisconnected]
 void AtmServer::socketDisconnected()
 {
     QWebSocket *pClient = qobject_cast<QWebSocket *>(sender());
@@ -128,4 +114,9 @@ void AtmServer::socketDisconnected()
         pClient->deleteLater();
     }
 }
-//! [socketDisconnected]
+/*
+DBAccessor* AtmServer::dbAccessor()
+{
+    return m_dbaccessor;
+}
+*/

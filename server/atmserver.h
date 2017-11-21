@@ -68,10 +68,14 @@ public:
     explicit AtmServer(quint16 port, QObject *parent = Q_NULLPTR);
     virtual ~AtmServer();
 
+    //DBAccessor* dbAccessor();
+
 private Q_SLOTS:
     void onNewConnection();
     void processMessage(QString message);
     void socketDisconnected();
+
+
 
 private:
     QWebSocketServer *m_pWebSocketServer;

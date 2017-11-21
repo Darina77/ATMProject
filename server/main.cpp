@@ -49,11 +49,15 @@
 ****************************************************************************/
 #include <QtCore/QCoreApplication>
 #include "atmserver.h"
-
+#include "userdata.h"
 int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
     AtmServer server(1234);
+
+    //UserData sud("666", "1488", "Satan", "God's_Birth", "","UA-1");
+
+    //server.dbAccessor()->putUD(&sud);
 
     return a.exec();
 }

@@ -3,6 +3,7 @@
 
 #include <QString>
 #include <QMap>
+#include <QJsonObject>
 class UserData;
 
 class DBAccessor
@@ -13,8 +14,11 @@ public:
 
     UserData* takeUD(QString& cardNum);
     void putUD(UserData*);
+private:
+    QJsonObject dbGet(QString cardNum);
+    void dbPut(const QJsonObject &jsonObj);
 
-    QMap <QString, QString> _cardsCash;
+    QMap <QString, QJsonObject> _cardsCash;
 };
 
 #endif // DBACCESSOR_H
