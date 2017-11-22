@@ -9,7 +9,6 @@ Menu::Menu(QWidget *parent, AtmInput* ai)
  Menu::~Menu()
  {
      delete _ui;
-     delete _ai;
  }
 
 void Menu::on_getMoney_clicked()

@@ -9,7 +9,6 @@ Login::Login(QWidget *parent, AtmInput* ai)
  Login::~Login()
  {
      delete _ui;
-     delete _ai;
  }
 
  void Login::enterNumber(unsigned char num)

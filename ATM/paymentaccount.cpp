@@ -8,7 +8,6 @@ PaymentAccount::PaymentAccount(QWidget *parent, AtmInput* ai):QWidget(parent), _
 PaymentAccount::~PaymentAccount()
 {
     delete _ui;
-    delete _ai;
 }
 
 void PaymentAccount::enterNumber(unsigned char num)
@@ -123,6 +122,8 @@ void PaymentAccount::on_cancelButt_clicked()
     _login =  "";
     _ui->lineEdit->setText(_login);
     _count = 0;
+    this->close();
+    _ai->setCurrentIndex(2);
 }
 
 void PaymentAccount::on_cancelAct_clicked()
@@ -130,6 +131,4 @@ void PaymentAccount::on_cancelAct_clicked()
     _login =  "";
     _ui->lineEdit->setText(_login);
     _count = 0;
-    this->close();
-    _ai->setCurrentIndex(2);
 }

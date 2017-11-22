@@ -11,7 +11,6 @@ PaymentAmount::PaymentAmount(QWidget *parent, AtmInput *ai)
 PaymentAmount::~PaymentAmount()
 {
     delete _ui;
-    delete _ai;
 }
 
 void PaymentAmount::enterNumber(unsigned char num)

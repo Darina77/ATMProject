@@ -8,7 +8,6 @@ SendMoneyAccount::SendMoneyAccount(QWidget *parent, AtmInput* ai):QWidget(parent
 SendMoneyAccount::~SendMoneyAccount()
 {
     delete _ui;
-    delete _ai;
 }
 
 void SendMoneyAccount::enterNumber(unsigned char num)

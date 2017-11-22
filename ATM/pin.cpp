@@ -10,7 +10,6 @@ Pin::Pin(QWidget *parent, AtmInput* ai)
  Pin::~Pin()
  {
      delete _ui;
-     delete _ai;
  }
 
 
@@ -70,6 +69,10 @@ void Pin::on_okAct_clicked()
         if (_count == limit){
             if (sendPass())
             {
+                _pass =  "";
+                _setedPass = "";
+                _ui->lineEdit->setText(_setedPass);
+                _count = 0;
                 this->close();
                 _ai->setCurrentIndex(2);
             } else
