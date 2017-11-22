@@ -18,7 +18,7 @@ void PaymentAccount::enterNumber(unsigned char num)
         _ui->lineEdit->setText(_login);
         _count++;
     }
-    if (_count%4 == 0) _login.append(' ');
+    if (_count%4 == 0 && _count != limit) _login.append(' ');
 }
 
 void PaymentAccount::setMessege(const QString& messege)
