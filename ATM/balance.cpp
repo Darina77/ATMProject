@@ -9,7 +9,6 @@ Balance::Balance(QWidget *parent, AtmInput *ai)
 Balance::~Balance()
 {
     delete _ui;
-    delete _ai;
 }
 
 QString Balance::getBalance()

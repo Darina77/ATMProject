@@ -8,7 +8,6 @@ SendMoneyAccount::SendMoneyAccount(QWidget *parent, AtmInput* ai):QWidget(parent
 SendMoneyAccount::~SendMoneyAccount()
 {
     delete _ui;
-    delete _ai;
 }
 
 void SendMoneyAccount::enterNumber(unsigned char num)
@@ -19,7 +18,7 @@ void SendMoneyAccount::enterNumber(unsigned char num)
         _ui->CardNumLine->setText(_login);
         _count++;
     }
-    if (_count%4 == 0) _login.append(' ');
+    if (_count%4 == 0 && _count != limit) _login.append(' ');
 }
 
 void SendMoneyAccount::setMessege(const QString& messege)

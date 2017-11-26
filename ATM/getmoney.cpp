@@ -10,7 +10,6 @@ GetMoney::GetMoney(QWidget *parent, AtmInput *ai):
 GetMoney::~GetMoney()
 {
     delete _ui;
-    delete _ai;
 }
 
 void GetMoney::on_pushButton_1_clicked()

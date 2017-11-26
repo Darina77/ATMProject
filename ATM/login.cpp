@@ -9,7 +9,6 @@ Login::Login(QWidget *parent, AtmInput* ai)
  Login::~Login()
  {
      delete _ui;
-     delete _ai;
  }
 
  void Login::enterNumber(unsigned char num)
@@ -20,7 +19,7 @@ Login::Login(QWidget *parent, AtmInput* ai)
          _ui->CardNumLine->setText(_login);
          _count++;
      }
-     if (_count%4 == 0) _login.append(' ');
+     if (_count%4 == 0 && _count != limit) _login.append(' ');
  }
 
 void Login::on_okAct_clicked()

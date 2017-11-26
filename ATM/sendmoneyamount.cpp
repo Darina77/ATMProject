@@ -10,7 +10,6 @@ SendMoneyAmount::SendMoneyAmount(QWidget *parent, AtmInput *ai)
 SendMoneyAmount::~SendMoneyAmount()
 {
     delete _ui;
-    delete _ai;
 }
 
 void SendMoneyAmount::enterNumber(unsigned char num)

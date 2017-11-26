@@ -9,7 +9,6 @@ QWidget(parent), _ui(new Ui::Other), _ai(ai)
 Other::~Other()
 {
     delete _ui;
-    delete _ai;
 }
 
 void Other::on_anotherButt_clicked()
