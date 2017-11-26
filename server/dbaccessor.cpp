@@ -7,19 +7,37 @@
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QJsonObject>
+#include <QVariant>
+#include <QVariantMap>
+
+#include <stdexcept>
 
 #define DB_FILE_PATH "D:/db/"
-
+#define LOG_FILE "D:/db/log.txt"
 
 DBAccessor::DBAccessor()
 {
 }
 DBAccessor::~DBAccessor()
 {
+    if (!_mutexMap.isEmpty())
+    {
+        QFile f(LOG_FILE);
+        if (f.open(QFile::Append))
+        {
+            f.write("Memory leak: not all UserData are free\n");
+            f.close();
+        }
+    }
 }
 
-UserData* DBAccessor::takeUD(QString &cardNum)
+UserData* DBAccessor::takeUD(QString &cardNum, void *borrower)
 {
+    if(_mutexMap.contains(cardNum))
+    {
+        qDebug() <<"Trying get access to allready using card";
+        return 0;
+    }
     bool flag = false;
     flag =_cardsCash.keys().contains(cardNum);
 
@@ -35,25 +53,45 @@ UserData* DBAccessor::takeUD(QString &cardNum)
 
     if (flag)
     {
+
         const QJsonObject& jo = _cardsCash[cardNum];
-        return new UserData(
-                jo["cardNum"].toString(),
-                jo["pin"].toString(),
-                jo["owner"].toString(),
-                jo["date"].toString(),
-                jo["daemons"].toString(),
-                jo["money"].toString()
+        QMap<QString, Integer> moneyMap;
+        const QMap<QString, QVariant>& varMap = jo["money"].toObject().toVariantMap();
+        foreach (const QString& key, varMap.keys())
+        {
+            moneyMap[key].setVal(varMap[key].toString());
+        }
+        UserData* ud = new UserData(
+                    jo["cardNum"].toString(),
+                    jo["pin"].toString(),
+                    jo["owner"].toString(),
+                    QDate::fromString(jo["date"].toString()),
+                    jo["daemons"].toString(),
+                    moneyMap
                     );
+        _mutexMap[ud->cardNum()]=borrower;
+        return ud;
     }
 
     return 0;
 }
-void DBAccessor::putUD(UserData* ud)
+void DBAccessor::updateUD(UserData* ud)
 {
     QJsonObject jo = ud->toJsonObject();
     _cardsCash[jo["cardNum"].toString()]=jo;
     dbPut(jo);
     return;
+}
+
+void DBAccessor::freeUD(UserData *ud)
+{
+    _mutexMap.remove(ud->cardNum());
+    delete ud;
+}
+
+bool DBAccessor::isBeingUsed(const QString &cardNum)
+{
+    return _mutexMap.contains(cardNum);
 }
 
 QJsonObject DBAccessor::dbGet(QString cardNum)

@@ -50,12 +50,23 @@
 #include <QtCore/QCoreApplication>
 #include "atmserver.h"
 #include "userdata.h"
+
+#include <QDate>
+#include <QMap>
+#include <QFile>
+#include "integer.h"
+#include <QDebug>
 int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
     AtmServer server(1234);
-
-    //UserData sud("666", "1488", "Satan", "God's_Birth", "","UA-1");
+    /*Integer i ("1024");
+    Integer i2("102");
+    i-=i2;
+    qDebug() << "i1:"<<i.toString();
+    qDebug() << "i2:"<<i2;
+    */
+    //UserData sud("666", "1488", "Satan", QDate(2017, 11, 21), "",QMap<QString, QString>());
 
     //server.dbAccessor()->putUD(&sud);
 

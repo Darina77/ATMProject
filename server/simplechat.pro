@@ -11,13 +11,15 @@ SOURCES += \
     main.cpp \
     atmserver.cpp \
     myparser.cpp \
-    dbaccessor.cpp
+    dbaccessor.cpp \
+    integer.cpp
 
 HEADERS += \
     atmserver.h \
     myparser.h \
     userdata.h \
-    dbaccessor.h
+    dbaccessor.h \
+    integer.h
 
 EXAMPLE_FILES += chatclient.html
 

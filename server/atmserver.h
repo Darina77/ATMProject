@@ -68,7 +68,7 @@ public:
     explicit AtmServer(quint16 port, QObject *parent = Q_NULLPTR);
     virtual ~AtmServer();
 
-    //DBAccessor* dbAccessor();
+//    DBAccessor* dbAccessor();
 
 private Q_SLOTS:
     void onNewConnection();

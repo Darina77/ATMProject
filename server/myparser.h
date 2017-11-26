@@ -42,7 +42,9 @@ private:
     QString check(QString number, QString pin);
     QString info();
     QString checkBalance();
-
+    QString withdrow(QString valueType, QString valueAmount);
+    QString putMoney(QString valueType, QString valueAmount);
+    QString transfer(QString card, QString valueType, QString valAmount);
     QString errMess(QString);
 };
 
