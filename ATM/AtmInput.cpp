@@ -1,8 +1,13 @@
 #include "AtmInput.h"
 
-AtmInput::AtmInput(QWidget *parent)
-   : QStackedWidget(parent), _userInfo("")
+AtmInput::AtmInput(const QUrl url, QWidget *parent)
+   : QStackedWidget(parent), _userInfo(""),  m_url(url)
 {
+    qDebug() << "WebSocket server:" << url;
+    connect(&m_webSocket, &QWebSocket::connected, this, &AtmInput::onConnected);
+    connect(&m_webSocket, &QWebSocket::disconnected, this, &AtmInput::closed);
+    m_webSocket.open(QUrl(url));
+
     QWidget* login = new Login(parent, this);
     QWidget* pin = new Pin(parent, this);
     QWidget* menu = new Menu(parent, this);
@@ -29,7 +34,42 @@ AtmInput::AtmInput(QWidget *parent)
     setFixedSize(login->size());
 }
 
-void AtmInput::setUser(const QString& cardNum)
+AtmInput::~AtmInput(){ m_webSocket.close(); }
+
+void AtmInput::onConnected()
+{
+    qDebug() << "WebSocket connected";
+    connect(&m_webSocket, &QWebSocket::textMessageReceived, this, &AtmInput::onTextMessageReceived);
+    m_webSocket.sendTextMessage(QStringLiteral("chk 1234123412341234 1111"));
+}
+
+const bool AtmInput::isRightLogin(QString& str)
+{
+    return true;
+}
+
+const bool AtmInput::isRightPin(QString& pin)
+{
+    return true;
+}
+
+void AtmInput::onTextMessageReceived(const QString& message)
+{
+    qDebug() << "Message received:" << message;
+    FromJson reader(message);
+    last_resp_res = reader.getBool("res");
+    if (last_resp_res)
+    {
+        if (reader.hasField("values"))
+        {
+            QJsonObject balObj = reader.getObject("values");
+            _userInfo.balance() = reader.getString(balObj, "UAH");
+            qDebug() << "Balance:" << _userInfo.balance();
+        }
+    }
+}
+
+void AtmInput::setUser(const QString& cardNum, const QString& balance)
 {
     _userInfo = ShotUserInfo(cardNum);
     //TODO get from server is it blocked
@@ -45,6 +85,12 @@ bool AtmInput::isBlocked() const
     return _userInfo.isBlocked();
 }
 
-
-
+const QString AtmInput::getBalance()
+{
+    m_webSocket.sendTextMessage(QStringLiteral("chb"));
+    connect(&m_webSocket, &QWebSocket::textMessageReceived, this, &AtmInput::onTextMessageReceived);
+    m_webSocket.readChannelFinished();
+    qDebug() << "Balance:" << _userInfo.balance();
+    return _userInfo.balance();
+}
 

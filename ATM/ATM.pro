@@ -5,7 +5,7 @@
 #-------------------------------------------------
 
 QT       += core gui
-QT       += network
+QT       += core websockets
 
 QT   += uitools
 
@@ -39,7 +39,8 @@ SOURCES += \
     sendmoneyaccount.cpp \
     sendmoneyamount.cpp \
     paymentaccount.cpp \
-    paymentamount.cpp
+    paymentamount.cpp \
+    fromjson.cpp
 
 HEADERS += \
     AtmInput.h \
@@ -55,7 +56,8 @@ HEADERS += \
     sendmoneyaccount.h \
     sendmoneyamount.h \
     paymentaccount.h \
-    paymentamount.h
+    paymentamount.h \
+    fromjson.h
 
 FORMS += \
     balance.ui \

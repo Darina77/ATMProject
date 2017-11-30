@@ -28,7 +28,8 @@ void Login::on_okAct_clicked()
         if (sendLogin())
         {
             this->close();
-            _ai->setUser(_login);
+            //TODO - убрать
+            _ai->setUser(_login, "0");
             _login =  "";
             _ui->CardNumLine->setText(_login);
             _count = 0;

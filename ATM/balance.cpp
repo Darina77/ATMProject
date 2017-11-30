@@ -13,8 +13,7 @@ Balance::~Balance()
 
 QString Balance::getBalance()
 {
-    //TODO
-    return QString("5000");
+    return QString(_ai->getBalance());
 }
 
 void Balance::showEvent(QShowEvent *ev)
