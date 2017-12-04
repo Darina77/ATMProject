@@ -1,7 +1,7 @@
 #include "login.h"
 
-Login::Login(QWidget *parent, AtmInput* ai)
-    :QWidget(parent), _ui(new Ui::Login), _ai(ai), _login(""), _count(0)
+Login::Login(QWidget *parent)
+    :QWidget(parent), _ui(new Ui::Login), _login(""), _count(0)
 {
    _ui->setupUi(this);
 }
@@ -18,27 +18,36 @@ Login::Login(QWidget *parent, AtmInput* ai)
          _login.append(num);
          _ui->CardNumLine->setText(_login);
          _count++;
-     }
-     if (_count%4 == 0 && _count != limit) _login.append(' ');
+    }
+    if (_count%4 == 0 && _count != limit) _login.append(' ');
  }
+
+void Login::catchLoginOk(const bool res, const QString& str)
+{
+    if (currentPageIndex() != 0 || _count != limit) return;
+    if (res)
+    {
+        this->close();
+        emit userChoosed(_login, "0");
+        _login =  "";
+        _ui->CardNumLine->setText(_login);
+        _count = 0;
+         setMessege("");
+        nextPageIndex(1);
+     }
+     else
+     {
+        setMessege("No such card number");
+     }
+}
 
 void Login::on_okAct_clicked()
 {
-    if (_count == limit){
-        if (sendLogin())
-        {
-            this->close();
-            //TODO - убрать
-            _ai->setUser(_login, "0");
-            _login =  "";
-            _ui->CardNumLine->setText(_login);
-            _count = 0;
-            _ai->setCurrentIndex(1);
+    if (_count == limit)
+    {
+        setMessege("Wait a minute...");
+        emit getLogin(_login);
 
-        } else
-        {
-            setMessege("No such card number");
-        }
     } else setMessege("Card number is not full");
 }
 
@@ -131,9 +140,5 @@ void Login::on_cancelButt_clicked()
     _count = 0;
 }
 
-bool Login::sendLogin()
-{
-    //TODO Beckend
-    return true;
-}
+
 

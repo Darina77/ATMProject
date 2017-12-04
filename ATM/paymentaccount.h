@@ -9,8 +9,11 @@ class PaymentAccount : public QWidget
 {
    Q_OBJECT
 public:
-   explicit PaymentAccount(QWidget *parent = 0, AtmInput *ai = 0);
+    explicit PaymentAccount(QWidget *parent = 0);
    ~PaymentAccount();
+signals:
+    void nextPageIndex(int);
+    int currentPageIndex();
 private slots:
 
     void on_pushButton_1_clicked();
@@ -43,12 +46,10 @@ private slots:
 
 private:
     Ui::PaymentAccount* _ui;
-    AtmInput* _ai;
     QString _login;
     unsigned int _count;
     const unsigned int limit = 16;
     void enterNumber(unsigned char num);
-    bool sendPaymentLogin();
     void setMessege(const QString&);
 };
 #endif // PAYMENTACCOUNT_H

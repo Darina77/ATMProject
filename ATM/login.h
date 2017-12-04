@@ -9,8 +9,16 @@ class Login : public QWidget
 {
    Q_OBJECT
 public:
-   explicit Login(QWidget *parent = 0, AtmInput *ai = 0);
+   explicit Login(QWidget *parent = 0);
    ~Login();
+
+signals:
+    void userChoosed(const QString, const QString);
+    void getLogin(const QString&);
+    void nextPageIndex(int);
+    int currentPageIndex();
+public slots:
+    void catchLoginOk(const bool, const QString&);
 private slots:
    void on_okAct_clicked();
 
@@ -42,10 +50,10 @@ private slots:
 
 private:
    Ui::Login* _ui;
-   AtmInput* _ai;
    QString _login;
    unsigned int _count;
    const unsigned int limit = 16;
+
    void enterNumber(unsigned char num);
    bool sendLogin();
    void setMessege(const QString&);

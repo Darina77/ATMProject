@@ -15,7 +15,7 @@ public:
     bool getBool(const QString& str);
     QString getString(const QString& str);
     QString getString(const QJsonObject& ob, const QString& str);
-    const bool hasField(const QString& str);
+    bool hasField(const QString& str);
     QJsonObject getObject(const QString& str);
 
 private:

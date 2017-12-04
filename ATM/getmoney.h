@@ -9,8 +9,21 @@ class GetMoney: public QWidget
 {
  Q_OBJECT
  public:
-    explicit GetMoney(QWidget *parent = 0, AtmInput *ai = 0);
-    ~GetMoney();
+      explicit GetMoney(QWidget *parent = 0);
+      ~GetMoney();
+
+signals:
+
+    void nextPageIndex(int);
+    void tryBanknotesValue();
+    int currentPageIndex();
+    void getMoney(const int);
+
+ public slots:
+
+    void catchBanknotesValue(int);
+    void catchGetMoney(const bool, const QString&);
+
  private slots:
     void on_pushButton_1_clicked();
 
@@ -42,14 +55,14 @@ class GetMoney: public QWidget
 
 private:
     Ui::GetMoney* _ui;
-    AtmInput* _ai;
     QString _strAmount;
     unsigned int _amount;
     unsigned int _count;
+
     const unsigned int _charLimit = 4;
     const unsigned int _amountLimit = 5000;
+
     void enterNumber(unsigned char num);
-    unsigned int getSum();
     void setMessege(const QString&);
 
 };

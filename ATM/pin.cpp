@@ -1,8 +1,12 @@
 #include "pin.h"
 
-Pin::Pin(QWidget *parent, AtmInput* ai)
-    :QWidget(parent), _ui(new Ui::Pin), _ai(ai), _pass(""),
-    _setedPass(""), _tryCount(0), _count(0)
+Pin::Pin(QWidget *parent)
+    :QWidget(parent)
+  , _ui(new Ui::Pin)
+  , _pass("")
+  , _setedPass("")
+  , _tryCount(0)
+  , _count(0)
 {
    _ui->setupUi(this);
 }
@@ -65,23 +69,36 @@ void Pin::on_pushButton_0_clicked()
 
 void Pin::on_okAct_clicked()
 {
-    if (!_ai->isBlocked()){
+    setMessege("Wait a minute...");
+    emit tryBlocked();
+}
+
+void Pin::catchRightPin(const bool res, const QString&)
+{
+    if (currentPageIndex() != 1 || _count < limit) return;
+    if (res)
+    {
+        _pass =  "";
+        _setedPass = "";
+        _ui->lineEdit->setText(_setedPass);
+        _count = 0;
+        this->close();
+        setMessege("");
+        nextPageIndex(2);
+    } else
+    {
+        _tryCount++;
+        setMessege("Wrong password");
+    }
+}
+
+void Pin::catchBlocked(bool blocked){
+    if (!blocked){
         if (_count == limit){
-            if (sendPass())
-            {
-                _pass =  "";
-                _setedPass = "";
-                _ui->lineEdit->setText(_setedPass);
-                _count = 0;
-                this->close();
-                _ai->setCurrentIndex(2);
-            } else
-            {
-                _tryCount++;
-                setMessege("Wrong password");
-            }
+           emit getPin(_pass);
         } else setMessege("Wrong password");
     } else setMessege("You are blocked");
+
 }
 
 void Pin::on_eraseAct_clicked()
@@ -126,10 +143,9 @@ bool Pin::sendPass()
 {
     if (_tryCount >= 3)
     {
-        _ai->blockUser();
+        emit blockUser();
         return false;
     }
-    //TODO Beckend
     return true;
 }
 

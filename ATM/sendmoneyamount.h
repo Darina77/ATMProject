@@ -9,8 +9,14 @@ class SendMoneyAmount: public QWidget
 {
  Q_OBJECT
  public:
-    explicit SendMoneyAmount(QWidget *parent = 0, AtmInput *ai = 0);
+    explicit SendMoneyAmount(QWidget *parent = 0);
     ~SendMoneyAmount();
+ signals:
+    void nextPageIndex(int);
+    int currentPageIndex();
+    void sendMoney(const int);
+ public slots:
+    void catchSendMoney(const bool, const QString&);
  private slots:
     void on_pushButton_1_clicked();
 
@@ -42,7 +48,6 @@ class SendMoneyAmount: public QWidget
 
 private:
    Ui::SendMoneyAmount* _ui;
-   AtmInput* _ai;
    QString _strAmount;
 
    unsigned int _amount;

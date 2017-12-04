@@ -1,6 +1,10 @@
 #include "sendmoneyaccount.h"
 
-SendMoneyAccount::SendMoneyAccount(QWidget *parent, AtmInput* ai):QWidget(parent), _ui(new Ui::SendMoneyAccount), _ai(ai), _login(""), _count(0)
+SendMoneyAccount::SendMoneyAccount(QWidget *parent):
+    QWidget(parent)
+  , _ui(new Ui::SendMoneyAccount)
+  , _login("")
+  , _count(0)
 {
    _ui->setupUi(this);
 }
@@ -26,11 +30,6 @@ void SendMoneyAccount::setMessege(const QString& messege)
     _ui->info->setText(messege);
 }
 
-bool SendMoneyAccount::sendSendLogin()
-{
-    //TODO Beckend
-    return true;
-}
 void SendMoneyAccount::on_pushButton_1_clicked()
 {
     enterNumber('1');
@@ -81,18 +80,26 @@ void SendMoneyAccount::on_pushButton_0_clicked()
     enterNumber('0');
 }
 
+ void SendMoneyAccount::catchSendMoneyAcc(const bool res, const QString& str)
+ {
+     if (currentPageIndex() != 7 || _login.length() == 0) return;
+     if (res)
+     {
+         this->close();
+         setMessege("");
+         nextPageIndex(8);
+     } else
+     {
+         setMessege("No such card number");
+     }
+ }
+
 void SendMoneyAccount::on_okAct_clicked()
 {
     if (_count == limit)
     {
-        if (sendSendLogin())
-        {
-            this->close();
-            _ai->setCurrentIndex(8);
-        } else
-        {
-            setMessege("No such card number");
-        }
+        sendMoneyAcc(_login);
+        setMessege("Wait a second...");
     } else setMessege("Card number is not full");
 }
 
@@ -129,5 +136,5 @@ void SendMoneyAccount::on_cancelButt_clicked()
     _ui->CardNumLine->setText(_login);
     _count = 0;
     this->close();
-    _ai->setCurrentIndex(2);
+    nextPageIndex(2);
 }

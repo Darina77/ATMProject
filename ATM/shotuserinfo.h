@@ -12,7 +12,7 @@ class ShotUserInfo
         {}
         ~ShotUserInfo(){}
         const QString& cardNumber() const{ return _cardNumber;}
-        const bool isBlocked() const {return _isBlocked;}
+        bool isBlocked() const {return _isBlocked;}
         void makeBlocked() {_isBlocked = false;}
         ShotUserInfo& operator = (const ShotUserInfo& inf)
         {

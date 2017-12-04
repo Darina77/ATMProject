@@ -40,7 +40,8 @@ SOURCES += \
     sendmoneyamount.cpp \
     paymentaccount.cpp \
     paymentamount.cpp \
-    fromjson.cpp
+    fromjson.cpp \
+
 
 HEADERS += \
     AtmInput.h \
@@ -57,7 +58,8 @@ HEADERS += \
     sendmoneyamount.h \
     paymentaccount.h \
     paymentamount.h \
-    fromjson.h
+    fromjson.h \
+
 
 FORMS += \
     balance.ui \

@@ -1,6 +1,10 @@
 #include "paymentaccount.h"
 
-PaymentAccount::PaymentAccount(QWidget *parent, AtmInput* ai):QWidget(parent), _ui(new Ui::PaymentAccount), _ai(ai), _login(""), _count(0)
+PaymentAccount::PaymentAccount(QWidget *parent):
+    QWidget(parent)
+  , _ui(new Ui::PaymentAccount)
+  , _login("")
+  , _count(0)
 {
    _ui->setupUi(this);
 }
@@ -26,11 +30,6 @@ void PaymentAccount::setMessege(const QString& messege)
     _ui->info->setText(messege);
 }
 
-bool PaymentAccount::sendPaymentLogin()
-{
-    //TODO Beckend
-    return true;
-}
 
 void PaymentAccount::on_pushButton_1_clicked()
 {
@@ -51,10 +50,10 @@ void PaymentAccount::on_okAct_clicked()
 {
     if (_count == limit)
     {
-        if (sendPaymentLogin())
+        if (true)
         {
             this->close();
-            _ai->setCurrentIndex(8);
+            nextPageIndex(8);
         } else
         {
             setMessege("No such card number");
@@ -123,7 +122,7 @@ void PaymentAccount::on_cancelButt_clicked()
     _ui->lineEdit->setText(_login);
     _count = 0;
     this->close();
-    _ai->setCurrentIndex(2);
+    nextPageIndex(2);
 }
 
 void PaymentAccount::on_cancelAct_clicked()
@@ -132,3 +131,4 @@ void PaymentAccount::on_cancelAct_clicked()
     _ui->lineEdit->setText(_login);
     _count = 0;
 }
+

@@ -1,8 +1,11 @@
 #include "putmoney.h"
 
-PutMoney::PutMoney(QWidget *parent, AtmInput *ai)
-    : QWidget(parent), _ui(new Ui::PutMoney), _ai(ai), _strAmount(""),
-      _amount(0), _count(0)
+PutMoney::PutMoney(QWidget *parent)
+    : QWidget(parent)
+    , _ui(new Ui::PutMoney)
+    , _strAmount("")
+    , _amount(0)
+    , _count(0)
 {
     _ui->setupUi(this);
 }
@@ -22,15 +25,11 @@ void PutMoney::enterNumber(unsigned char num)
     }
 }
 
-bool PutMoney::sendSum()
-{
-    //TODO to server
-    return true;
-}
 
 void PutMoney::setMessege(const QString& messege)
 {
     _ui->info->setText(messege);
+    this->update();
 }
 
 void PutMoney::on_pushButton_1_clicked()
@@ -87,15 +86,23 @@ void PutMoney::on_okAct_clicked()
 {
     _amount = _strAmount.toInt();
     if (_amount <= _amountLimit){
-        if (sendSum())
-        {
-            setMessege("Success");
-        }
-        else
-        {
-            setMessege("Error");
-        }
+        setMessege("Wait a minute...");
+        emit putMoney(_amount);
     } else setMessege("Maximum amount " + QString::number(_amountLimit));
+}
+
+void PutMoney::catchPutMoney(const bool res, const QString& str)
+{
+
+    if (currentPageIndex() != 5 || _strAmount.length() == 0) return;
+    if (res)
+    {
+        setMessege("Success");
+    }
+    else
+    {
+        setMessege("Error");
+    }
 }
 
 void PutMoney::on_eraseAct_clicked()
@@ -129,5 +136,5 @@ void PutMoney::on_cancelButt_clicked()
     _ui->info->setText("");
     _count = 0;
     this->close();
-    _ai->setCurrentIndex(2);
+    nextPageIndex(2);
 }

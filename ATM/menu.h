@@ -8,10 +8,13 @@ class AtmInput;
 class Menu : public QWidget
 {
     Q_OBJECT
-    public:
-        explicit Menu(QWidget *parent = 0, AtmInput *ai = 0);
+public:
+        explicit Menu(QWidget *parent = 0);
         ~Menu();
-    private slots:
+signals:
+    void nextPageIndex(int);
+    int currentPageIndex();
+private slots:
 
     void on_getMoney_clicked();
 
@@ -31,7 +34,7 @@ class Menu : public QWidget
 
 private:
         Ui::Menu* _ui;
-        AtmInput* _ai;
+        //AtmInput* _ai;
 };
 
 #endif // MENU_H

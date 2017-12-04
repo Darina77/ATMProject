@@ -1,7 +1,9 @@
 #include "getmoney.h"
 
-GetMoney::GetMoney(QWidget *parent, AtmInput *ai):
-    QWidget(parent), _ui(new Ui::GetMoney), _ai(ai), _strAmount(""),
+GetMoney::GetMoney(QWidget *parent):
+    QWidget(parent)
+  , _ui(new Ui::GetMoney)
+  , _strAmount(""),
     _amount(0), _count(0)
 {
     _ui->setupUi(this);
@@ -66,23 +68,36 @@ void GetMoney::on_okAct_clicked()
 {
     _amount = _strAmount.toInt();
     if (_amount <= _amountLimit){
-        if(_amount%(_ai->banknotesValue()) == 0)
-        {
-            int possibleAmount = getSum();
-            if (possibleAmount > 0)
-            {
-                setMessege("Success");
-            } else
-            {
-                setMessege("No money");
-            }
-        } else setMessege("Amount must be aliquot to " + QString::number(_ai->banknotesValue()));
+        tryBanknotesValue();
+        setMessege("Wait a second...");
     } else setMessege("Maximum amount " + QString::number(_amountLimit));
+}
+
+void GetMoney::catchGetMoney(const bool res, const QString& str)
+{
+    if(currentPageIndex() != 3 || _strAmount.length() < 1) return;
+    if (res)
+    {
+        setMessege("Success");
+    }
+    else
+    {
+        setMessege("Error");
+    }
+}
+
+void GetMoney::catchBanknotesValue(int val)
+{
+    if(_amount%(val) == 0)
+    {
+        getMoney(_amount);
+    } else setMessege("Amount must be aliquot to " + QString::number(val));
 }
 
 void GetMoney::setMessege(const QString& messege)
 {
     _ui->info->setText(messege);
+    this->update();
 }
 
 void GetMoney::on_eraseAct_clicked()
@@ -116,7 +131,7 @@ void GetMoney::on_cancelButt_clicked()
     _ui->info->setText("");
     _count = 0;
     this->close();
-    _ai->setCurrentIndex(2);
+    nextPageIndex(2);
 }
 
 void GetMoney::enterNumber(unsigned char num)
@@ -129,8 +144,3 @@ void GetMoney::enterNumber(unsigned char num)
     }
 }
 
-unsigned int GetMoney::getSum()
-{
-    //TODO from server
-    return _amount;
-}

@@ -18,13 +18,13 @@
 background-image: url(:/Resources/background.png);
 }</string>
   </property>
-  <widget class="QLabel" name="window_2">
+  <widget class="QLabel" name="info">
    <property name="geometry">
     <rect>
      <x>50</x>
      <y>250</y>
      <width>521</width>
-     <height>111</height>
+     <height>71</height>
     </rect>
    </property>
    <property name="font">
@@ -150,6 +150,30 @@ background-image: url(:/Resources/lineIn.png);
    </property>
    <property name="text">
     <string>balance</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="info_2">
+   <property name="geometry">
+    <rect>
+     <x>410</x>
+     <y>170</y>
+     <width>111</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>KenVector Future</family>
+     <pointsize>26</pointsize>
+     <underline>false</underline>
+     <strikeout>false</strikeout>
+    </font>
+   </property>
+   <property name="text">
+    <string>UAH</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
    </property>
   </widget>
  </widget>

@@ -1,9 +1,11 @@
 #include "paymentamount.h"
 
-
-PaymentAmount::PaymentAmount(QWidget *parent, AtmInput *ai)
-    : QWidget(parent), _ui(new Ui::PaymentAmount), _ai(ai), _strAmount(""),
-      _amount(0), _count(0)
+PaymentAmount::PaymentAmount(QWidget *parent)
+    : QWidget(parent)
+    , _ui(new Ui::PaymentAmount)
+    , _strAmount("")
+    , _amount(0)
+    , _count(0)
 {
     _ui->setupUi(this);
 }
@@ -21,12 +23,6 @@ void PaymentAmount::enterNumber(unsigned char num)
         _ui->lineEdit->setText(_strAmount);
         _count++;
     }
-}
-
-bool PaymentAmount::sendSendSum()
-{
-    //TODO to server
-    return true;
 }
 
 void PaymentAmount::setMessege(const QString& messege)
@@ -92,14 +88,15 @@ void PaymentAmount::on_cancelButt_clicked()
     _ui->info->setText("");
     _count = 0;
     this->close();
-    _ai->setCurrentIndex(2);
+    //_ai->setCurrentIndex(2);
+    nextPageIndex(2);
 }
 
 void PaymentAmount::on_okAct_clicked()
 {
     _amount = _strAmount.toInt();
     if (_amount <= _amountLimit){
-        if (sendSendSum())
+        if (true)
         {
             setMessege("Success");
         }

@@ -8,8 +8,14 @@ class PutMoney: public QWidget
 {
  Q_OBJECT
  public:
-    explicit PutMoney(QWidget *parent = 0, AtmInput *ai = 0);
+    explicit PutMoney(QWidget *parent = 0);
     ~PutMoney();
+ signals:
+    void nextPageIndex(int);
+    int currentPageIndex();
+    void putMoney(const int);
+ public slots:
+    void catchPutMoney(const bool, const QString&);
  private slots:
     void on_pushButton_1_clicked();
     void on_pushButton_2_clicked();
@@ -27,7 +33,6 @@ class PutMoney: public QWidget
     void on_cancelButt_clicked();
  private:
     Ui::PutMoney* _ui;
-    AtmInput* _ai;
     QString _strAmount;
 
     unsigned int _amount;
@@ -35,7 +40,6 @@ class PutMoney: public QWidget
     const unsigned int _charLimit = 4;
     const unsigned int _amountLimit = 5000;
     void enterNumber(unsigned char num);
-    bool sendSum();
     void setMessege(const QString&);
 };
 #endif // PUTMONEY_H

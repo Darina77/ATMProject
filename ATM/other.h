@@ -9,14 +9,18 @@ class Other : public QWidget
 {
 Q_OBJECT
 public:
-    explicit Other(QWidget *parent = 0, AtmInput *ai = 0);
+    //explicit Other(QWidget *parent = 0, AtmInput *ai = 0);
+    explicit Other(QWidget *parent = 0);
     ~Other();
+signals:
+    void nextPageIndex(int);
+    int currentPageIndex();
 private slots:
     void on_anotherButt_clicked();
     void on_cancelButt_clicked();
 private:
     Ui::Other* _ui;
-    AtmInput* _ai;
+    //AtmInput* _ai;
 };
 
 #endif // OTHER_H

@@ -95,7 +95,7 @@ QString FromJson::getString(const QJsonObject& ob, const QString& str)
     }
 }
 
-const bool FromJson::hasField(const QString& str)
+bool FromJson::hasField(const QString& str)
 {
    return jsOb.contains(str);
 }

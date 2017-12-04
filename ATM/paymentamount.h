@@ -9,8 +9,12 @@ class PaymentAmount: public QWidget
 {
  Q_OBJECT
  public:
-    explicit PaymentAmount(QWidget *parent = 0, AtmInput *ai = 0);
+    explicit PaymentAmount(QWidget *parent = 0);
     ~PaymentAmount();
+
+ signals:
+    void nextPageIndex(int);
+    int currentPageIndex();
  private slots:
 
     void on_pushButton_1_clicked();
@@ -43,7 +47,6 @@ class PaymentAmount: public QWidget
 
 private:
    Ui::PaymentAmount* _ui;
-   AtmInput* _ai;
    QString _strAmount;
 
    unsigned int _amount;
@@ -51,7 +54,6 @@ private:
    const unsigned int _charLimit = 4;
    const unsigned int _amountLimit = 5000;
    void enterNumber(unsigned char num);
-   bool sendSendSum();
    void setMessege(const QString&);
 };
 

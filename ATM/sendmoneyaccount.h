@@ -9,8 +9,14 @@ class SendMoneyAccount : public QWidget
 {
    Q_OBJECT
 public:
-   explicit SendMoneyAccount(QWidget *parent = 0, AtmInput *ai = 0);
+    explicit SendMoneyAccount(QWidget *parent = 0);
    ~SendMoneyAccount();
+signals:
+    void nextPageIndex(int);
+    int currentPageIndex();
+    void sendMoneyAcc(const QString&);
+public slots:
+    void catchSendMoneyAcc(const bool, const QString&);
 private slots:
     void on_pushButton_1_clicked();
 
@@ -42,12 +48,10 @@ private slots:
 
 private:
     Ui::SendMoneyAccount* _ui;
-    AtmInput* _ai;
     QString _login;
     unsigned int _count;
     const unsigned int limit = 16;
     void enterNumber(unsigned char num);
-    bool sendSendLogin();
     void setMessege(const QString&);
 };
 #endif // SENDMONEYACCOUNT_H

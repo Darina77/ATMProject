@@ -8,10 +8,20 @@ class AtmInput;
 class Pin : public QWidget
 {
    Q_OBJECT
-    public:
-        explicit Pin(QWidget *parent = 0, AtmInput *ai = 0);
+public:
+    //explicit Pin(QWidget *parent = 0, AtmInput *ai = 0);
+    explicit Pin(QWidget *parent = 0);
         ~Pin();
-    private slots:
+signals:
+    void nextPageIndex(int);
+    void tryBlocked();
+    void blockUser();
+    void getPin(const QString&);
+    int currentPageIndex();
+public slots:
+    void catchBlocked(bool);
+    void catchRightPin(const bool, const QString&);
+private slots:
 
     void on_pushButton_1_clicked();
 
@@ -43,7 +53,7 @@ class Pin : public QWidget
 
 private:
     Ui::Pin* _ui;
-    AtmInput* _ai;
+    //AtmInput* _ai;
     QString _pass;
     QString _setedPass;
     unsigned int _tryCount;
