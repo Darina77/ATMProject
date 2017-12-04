@@ -81,7 +81,7 @@ void SendMoneyAmount::on_pushButton_0_clicked()
     enterNumber('0');
 }
 
-void SendMoneyAmount::catchSendMoney(const bool res, const QString& str)
+void SendMoneyAmount::catchSendMoney(const bool res, const QString&, const QString& reason)
 {
     if (currentPageIndex() != 8 || _strAmount.length() == 0) return;
     if (res)
@@ -90,7 +90,7 @@ void SendMoneyAmount::catchSendMoney(const bool res, const QString& str)
     }
     else
     {
-        setMessege("Error");
+        setMessege(reason);
     }
 }
 
@@ -99,7 +99,7 @@ void SendMoneyAmount::on_okAct_clicked()
     _amount = _strAmount.toInt();
     if (_amount <= _amountLimit){
         setMessege("Wait a minute ...");
-        emit sendMoney(_amount);
+        emit sendMoney(_amount*100);
     } else setMessege("Maximum amount " + QString::number(_amountLimit));
 }
 

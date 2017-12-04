@@ -1,7 +1,7 @@
 #include "login.h"
 
 Login::Login(QWidget *parent)
-    :QWidget(parent), _ui(new Ui::Login), _login(""), _count(0)
+    :QWidget(parent), _ui(new Ui::Login), _login(""), _count(0), _enterLogin("")
 {
    _ui->setupUi(this);
 }
@@ -15,14 +15,15 @@ Login::Login(QWidget *parent)
  {
      if(_count < limit)
      {
+         _enterLogin.append(num);
          _login.append(num);
-         _ui->CardNumLine->setText(_login);
+         _ui->CardNumLine->setText(_enterLogin);
          _count++;
     }
-    if (_count%4 == 0 && _count != limit) _login.append(' ');
+    if (_count%4 == 0 && _count != limit) _enterLogin.append(' ');
  }
 
-void Login::catchLoginOk(const bool res, const QString& str)
+void Login::catchLoginOk(const bool res, const QString& str, const QString& reason)
 {
     if (currentPageIndex() != 0 || _count != limit) return;
     if (res)
@@ -30,14 +31,15 @@ void Login::catchLoginOk(const bool res, const QString& str)
         this->close();
         emit userChoosed(_login, "0");
         _login =  "";
-        _ui->CardNumLine->setText(_login);
+        _enterLogin = "";
+        _ui->CardNumLine->setText(_enterLogin);
         _count = 0;
-         setMessege("");
+        setMessege("");
         nextPageIndex(1);
      }
      else
      {
-        setMessege("No such card number");
+        setMessege(reason);
      }
 }
 
@@ -110,18 +112,21 @@ void Login::on_eraseAct_clicked()
 {
     if(_count > 0)
     {
-        int loginSize = _login.size();
-        if (_login.at(loginSize-1) == ' ')
+        int enterLoginSize = _enterLogin.size();
+        if (_enterLogin.at(enterLoginSize-1) == ' ')
         {
-            _login.remove(loginSize-1, loginSize-1);
-            loginSize--;
+            _enterLogin.remove(enterLoginSize-1, enterLoginSize-1);
+            enterLoginSize--;
         }
-        if(loginSize > 1){
-            _login.remove(loginSize-1, loginSize-1);
-            loginSize--;
-        } else _login =  "";
-
-        _ui->CardNumLine->setText(_login);
+        if(enterLoginSize > 1){
+            _login.remove(_count-1, _count-1);
+            _enterLogin.remove(enterLoginSize-1, enterLoginSize-1);
+            enterLoginSize--;
+        } else {
+            _login =  "";
+            _enterLogin = "";
+         }
+        _ui->CardNumLine->setText(_enterLogin);
         _count--;
     }
 }
@@ -129,14 +134,16 @@ void Login::on_eraseAct_clicked()
 void Login::on_cancelAct_clicked()
 {
     _login =  "";
-    _ui->CardNumLine->setText(_login);
+    _enterLogin = "";
+    _ui->CardNumLine->setText(_enterLogin);
     _count = 0;
 }
 
 void Login::on_cancelButt_clicked()
 {
     _login =  "";
-    _ui->CardNumLine->setText(_login);
+    _enterLogin = "";
+    _ui->CardNumLine->setText(_enterLogin);
     _count = 0;
 }
 

@@ -73,7 +73,7 @@ background-image: url(:/Resources/backgroundTitle.png);
 }</string>
    </property>
    <property name="text">
-    <string>                                 menu</string>
+    <string>                                 MENU</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>

@@ -21,4 +21,7 @@
         <file>Resources/padButtonShortP.png</file>
 		<file>Resources/backgroundTitle.png</file>
     </qresource>
+	<qresource prefix="fonts">
+		<file>kenpixel.ttf</file>
+	</qresource>
 </RCC>

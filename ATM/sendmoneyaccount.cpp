@@ -2,9 +2,7 @@
 
 SendMoneyAccount::SendMoneyAccount(QWidget *parent):
     QWidget(parent)
-  , _ui(new Ui::SendMoneyAccount)
-  , _login("")
-  , _count(0)
+  , _ui(new Ui::SendMoneyAccount), _login(""), _count(0), _enterLogin("")
 {
    _ui->setupUi(this);
 }
@@ -18,11 +16,12 @@ void SendMoneyAccount::enterNumber(unsigned char num)
 {
     if(_count < limit)
     {
+        _enterLogin.append(num);
         _login.append(num);
-        _ui->CardNumLine->setText(_login);
+        _ui->CardNumLine->setText(_enterLogin);
         _count++;
-    }
-    if (_count%4 == 0 && _count != limit) _login.append(' ');
+   }
+   if (_count%4 == 0 && _count != limit) _enterLogin.append(' ');
 }
 
 void SendMoneyAccount::setMessege(const QString& messege)
@@ -80,17 +79,22 @@ void SendMoneyAccount::on_pushButton_0_clicked()
     enterNumber('0');
 }
 
- void SendMoneyAccount::catchSendMoneyAcc(const bool res, const QString& str)
+ void SendMoneyAccount::catchSendMoneyAcc(const bool res, const QString&, const QString& reason)
  {
      if (currentPageIndex() != 7 || _login.length() == 0) return;
      if (res)
      {
          this->close();
+         _login =  "";
+         _enterLogin = "";
+         _ui->CardNumLine->setText(_enterLogin);
+         _count = 0;
          setMessege("");
          nextPageIndex(8);
-     } else
+     }
+     else
      {
-         setMessege("No such card number");
+         setMessege(reason);
      }
  }
 
@@ -98,8 +102,8 @@ void SendMoneyAccount::on_okAct_clicked()
 {
     if (_count == limit)
     {
-        sendMoneyAcc(_login);
         setMessege("Wait a second...");
+        sendMoneyAcc(_login);   
     } else setMessege("Card number is not full");
 }
 
@@ -107,18 +111,21 @@ void SendMoneyAccount::on_eraseAct_clicked()
 {
     if(_count > 0)
     {
-        int loginSize = _login.size();
-        if (_login.at(loginSize-1) == ' ')
+        int enterLoginSize = _enterLogin.size();
+        if (_enterLogin.at(enterLoginSize-1) == ' ')
         {
-            _login.remove(loginSize-1, loginSize-1);
-            loginSize--;
+            _enterLogin.remove(enterLoginSize-1, enterLoginSize-1);
+            enterLoginSize--;
         }
-        if(loginSize > 1){
-            _login.remove(loginSize-1, loginSize-1);
-            loginSize--;
-        } else _login =  "";
-
-        _ui->CardNumLine->setText(_login);
+        if(enterLoginSize > 1){
+            _login.remove(_count-1, _count-1);
+            _enterLogin.remove(enterLoginSize-1, enterLoginSize-1);
+            enterLoginSize--;
+        } else {
+            _login =  "";
+            _enterLogin = "";
+         }
+        _ui->CardNumLine->setText(_enterLogin);
         _count--;
     }
 }
@@ -126,14 +133,16 @@ void SendMoneyAccount::on_eraseAct_clicked()
 void SendMoneyAccount::on_cancelAct_clicked()
 {
     _login =  "";
-    _ui->CardNumLine->setText(_login);
+    _enterLogin = "";
+    _ui->CardNumLine->setText(_enterLogin);
     _count = 0;
 }
 
 void SendMoneyAccount::on_cancelButt_clicked()
 {
     _login =  "";
-    _ui->CardNumLine->setText(_login);
+    _enterLogin = "";
+    _ui->CardNumLine->setText(_enterLogin);
     _count = 0;
     this->close();
     nextPageIndex(2);

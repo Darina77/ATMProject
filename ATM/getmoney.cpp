@@ -68,12 +68,12 @@ void GetMoney::on_okAct_clicked()
 {
     _amount = _strAmount.toInt();
     if (_amount <= _amountLimit){
-        tryBanknotesValue();
         setMessege("Wait a second...");
+        tryBanknotesValue();    
     } else setMessege("Maximum amount " + QString::number(_amountLimit));
 }
 
-void GetMoney::catchGetMoney(const bool res, const QString& str)
+void GetMoney::catchGetMoney(const bool res, const QString& str, const QString& reason)
 {
     if(currentPageIndex() != 3 || _strAmount.length() < 1) return;
     if (res)
@@ -82,21 +82,29 @@ void GetMoney::catchGetMoney(const bool res, const QString& str)
     }
     else
     {
-        setMessege("Error");
+        setMessege(reason);
     }
 }
 
 void GetMoney::catchBanknotesValue(const int val)
 {
-    if(_amount%(val) == 0)
+    if((_amount%(val)) == 0)
     {
-       getMoney(_amount);
-    } else setMessege("Amount must be aliquot to " + QString::number(val));
+       emit getMoney(_amount*100);
+
+    }
+    else
+    {
+        QString str = "Amount must be aliquot to " + QString::number(val);
+        setMessege(str);
+        return;
+    }
 }
 
 void GetMoney::setMessege(const QString& messege)
 {
     _ui->info->setText(messege);
+    qDebug() << messege;
     this->update();
 }
 

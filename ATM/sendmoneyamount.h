@@ -21,7 +21,7 @@ class SendMoneyAmount: public QWidget
 
  public slots:
 
-    void catchSendMoney(const bool, const QString&);
+    void catchSendMoney(const bool, const QString&, const QString&);
 
  private slots:
 

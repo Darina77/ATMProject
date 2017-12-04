@@ -23,8 +23,7 @@ signals:
 
 public slots:
 
-    void catchBlocked(const bool);
-    void catchRightPin(const bool, const QString&);
+    void catchRightPin(const bool, const QString&, const QString&);
 
 private slots:
 

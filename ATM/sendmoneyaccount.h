@@ -21,7 +21,7 @@ signals:
 
 public slots:
 
-    void catchSendMoneyAcc(const bool, const QString&);
+    void catchSendMoneyAcc(const bool, const QString&, const QString&);
 
 private slots:
 
@@ -45,7 +45,7 @@ private:
 
     Ui::SendMoneyAccount* _ui;
     QString _login;
-
+    QString _enterLogin;
     unsigned int _count;
     const unsigned int limit = 16;
 

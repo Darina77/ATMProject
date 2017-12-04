@@ -353,7 +353,7 @@ text-align:center;
 }</string>
    </property>
    <property name="text">
-    <string>enter pin</string>
+    <string>                             ENTER PIN</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>

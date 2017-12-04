@@ -71,15 +71,22 @@ void Pin::on_okAct_clicked()
 {
     if (_tryCount >= 3)
     {
-        emit blockUser();
         setMessege("You are blocked");
+        emit blockUser();
+
         return;
     }
-    setMessege("Wait a minute...");
-    emit tryBlocked();
+
+    if (_count == limit){
+
+       setMessege("Wait a minute...");
+       emit getPin(_pass);
+
+    } else setMessege("Wrong password");
+
 }
 
-void Pin::catchRightPin(const bool res, const QString&)
+void Pin::catchRightPin(const bool res, const QString&, const QString& reason)
 {
     if (currentPageIndex() != 1 || _count < limit) return;
     if (res)
@@ -94,18 +101,10 @@ void Pin::catchRightPin(const bool res, const QString&)
     } else
     {
         _tryCount++;
-        setMessege("Wrong password");
+        setMessege(reason);
     }
 }
 
-void Pin::catchBlocked(const bool blocked){
-    if (!blocked){
-        if (_count == limit){
-           emit getPin(_pass);
-        } else setMessege("Wrong password");
-    } else setMessege("You are blocked");
-
-}
 
 void Pin::on_eraseAct_clicked()
 {

@@ -610,7 +610,7 @@ background-image: url(:/Resources/backgroundTitle.png);
 }</string>
    </property>
    <property name="text">
-    <string>                                   log in</string>
+    <string>                                   LOG IN</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>

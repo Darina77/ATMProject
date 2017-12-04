@@ -22,7 +22,7 @@ signals:
  public slots:
 
     void catchBanknotesValue(const int);
-    void catchGetMoney(const bool, const QString&);
+    void catchGetMoney(const bool, const QString&, const QString&);
 
  private slots:
 

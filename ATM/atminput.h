@@ -35,22 +35,19 @@ class PaymentAmount;
 
     explicit AtmInput(const QUrl url, QWidget* parent = 0);
      ~AtmInput();
-    void blockUser();
-    bool isBlocked() const;
     int getBanknotesValue() const {return banknotes;}
 
 signals:
 
     void closed();
-    void userIsBlocked(bool);
     void banknotesValue(int);
     void getBalance();
-    void endOperation(const bool, const QString&);
+    void endOperation(const bool, const QString&, const QString&);
 
 public slots:
 
     void setUser(const QString& cardNum);
-    void tryUserBlocked();
+    void tryUserBlock();
     void tryBanknotesValue();
     void tryGetBalance();
     void tryCheckLogin(const QString&);
@@ -72,8 +69,6 @@ public slots:
     QString _sendNum;
 
     bool last_resp_res;
-    bool checkBlock;
-
     const int banknotes = 100;
 
     Login* _login;

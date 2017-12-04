@@ -22,7 +22,7 @@ signals:
 
 public slots:
 
-    void catchLoginOk(const bool, const QString&);
+    void catchLoginOk(const bool, const QString&, const QString&);
 
 private slots:
 
@@ -45,6 +45,7 @@ private:
 
    Ui::Login* _ui;
    QString _login;
+   QString _enterLogin;
    unsigned int _count;
    const unsigned int limit = 16;
 

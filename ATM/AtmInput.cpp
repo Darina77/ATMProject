@@ -1,8 +1,7 @@
 #include "AtmInput.h"
 
 AtmInput::AtmInput(const QUrl url, QWidget *parent)
-   : QStackedWidget(parent), _userInfo(""),  m_url(url), _sendNum(),
-     checkBlock(false), last_resp_res(false),
+   : QStackedWidget(parent), _userInfo(""),  m_url(url), _sendNum(), last_resp_res(false),
      _login(new Login(this)),
      _pin(new Pin(this)),
      _menu(new Menu(this)),
@@ -22,8 +21,7 @@ AtmInput::AtmInput(const QUrl url, QWidget *parent)
     connect(_login, &Login::userChoosed, this, &AtmInput::setUser);
     connect(_login, &Login::nextPageIndex, this, &AtmInput::setCurrentIndex);
 
-    connect(_pin, &Pin::tryBlocked, this, &AtmInput::tryUserBlocked);
-    connect(this, &AtmInput::userIsBlocked, _pin, &Pin::catchBlocked);
+    connect(_pin, &Pin::blockUser, this, &AtmInput::tryUserBlock);
 
     connect(_pin, &Pin::nextPageIndex, this, &AtmInput::setCurrentIndex);
     connect(_menu, &Menu::nextPageIndex, this, &AtmInput::setCurrentIndex);
@@ -78,14 +76,16 @@ AtmInput::AtmInput(const QUrl url, QWidget *parent)
 
 void AtmInput::trySendMoney(const int money)
 {
-    QString comm("tfr " +_sendNum + " UAH "+ money);
+    qDebug() << money;
+    QString comm("tfr " +_sendNum + " UAH "+ QString::number(money));
     m_webSocket.sendTextMessage(comm);
 }
 
 void AtmInput::trySendMoneyAcc(const QString& login)
 {
-    QString comm("chc " + login); //не так
+    QString comm("che " + login);
     _sendNum = login;
+     qDebug() << login;
     m_webSocket.sendTextMessage(comm);
 }
 
@@ -104,6 +104,7 @@ void AtmInput::tryPutMoney(const int money)
 void AtmInput::tryCheckLogin(const QString& login)
 {
     QString comm("chc " + login);
+    qDebug() << login;
     m_webSocket.sendTextMessage(comm);
 }
 
@@ -118,10 +119,6 @@ void AtmInput::tryGetBalance()
     m_webSocket.sendTextMessage(QStringLiteral("chb"));
 }
 
-void AtmInput::tryUserBlocked()
-{
-    emit userIsBlocked(_userInfo.isBlocked());
-}
 void AtmInput::tryBanknotesValue()
 {
     emit banknotesValue(getBanknotesValue());
@@ -140,6 +137,7 @@ void AtmInput::onTextMessageReceived(const QString& message)
     qDebug() << "Message received:" << message;
     FromJson reader(message);
     last_resp_res = reader.getBool("res");
+    QString reason = "";
     if (last_resp_res)
     {
         if (reader.hasField("values"))
@@ -149,7 +147,15 @@ void AtmInput::onTextMessageReceived(const QString& message)
             qDebug() << "Balance:" << _userInfo.balance();
         }
     }
-    emit endOperation(last_resp_res, _userInfo.balance());
+    else
+    {
+        if (reader.hasField("reason"))
+        {
+            reason = reader.getString("reason");
+            qDebug() << "Error reason:" << reason;
+        }
+    }
+    emit endOperation(last_resp_res, _userInfo.balance(), reason);
 }
 
 void AtmInput::setUser(const QString& cardNum)
@@ -157,15 +163,11 @@ void AtmInput::setUser(const QString& cardNum)
     _userInfo = ShotUserInfo(cardNum);
 }
 
-void AtmInput::blockUser()
+void AtmInput::tryUserBlock()
 {
-    _userInfo.makeBlocked();
     m_webSocket.sendTextMessage(QStringLiteral("blk true"));
 }
 
-bool AtmInput::isBlocked() const
-{
-    return _userInfo.isBlocked();
-}
+
 
 

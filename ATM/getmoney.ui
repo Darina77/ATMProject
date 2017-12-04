@@ -458,9 +458,9 @@ border: none;
   <widget class="QLabel" name="window_2">
    <property name="geometry">
     <rect>
-     <x>-10</x>
+     <x>0</x>
      <y>0</y>
-     <width>631</width>
+     <width>601</width>
      <height>108</height>
     </rect>
    </property>
@@ -478,7 +478,7 @@ background-image: url(:/Resources/backgroundTitle.png);
 }</string>
    </property>
    <property name="text">
-    <string>                            Withdrowal</string>
+    <string>                            WITHDRUWAL</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>

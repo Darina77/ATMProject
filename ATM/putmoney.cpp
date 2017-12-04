@@ -87,11 +87,11 @@ void PutMoney::on_okAct_clicked()
     _amount = _strAmount.toInt();
     if (_amount <= _amountLimit){
         setMessege("Wait a minute...");
-        emit putMoney(_amount);
+        emit putMoney(_amount*100);
     } else setMessege("Maximum amount " + QString::number(_amountLimit));
 }
 
-void PutMoney::catchPutMoney(const bool res, const QString& str)
+void PutMoney::catchPutMoney(const bool res, const QString&, const QString& reason)
 {
 
     if (currentPageIndex() != 5 || _strAmount.length() == 0) return;
@@ -101,7 +101,7 @@ void PutMoney::catchPutMoney(const bool res, const QString& str)
     }
     else
     {
-        setMessege("Error");
+        setMessege(reason);
     }
 }
 

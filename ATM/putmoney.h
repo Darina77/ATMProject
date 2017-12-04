@@ -20,7 +20,7 @@ class PutMoney: public QWidget
 
  public slots:
 
-    void catchPutMoney(const bool, const QString&);
+    void catchPutMoney(const bool, const QString&, const QString&);
 
  private slots:
 

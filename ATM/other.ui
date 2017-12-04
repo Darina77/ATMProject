@@ -124,7 +124,7 @@ background-image: url(:/Resources/backgroundTitle.png);
 }</string>
    </property>
    <property name="text">
-    <string>                                   other</string>
+    <string>                                   OTHER</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>

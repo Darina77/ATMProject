@@ -478,7 +478,7 @@ background-image: url(:/Resources/backgroundTitle.png);
 }</string>
    </property>
    <property name="text">
-    <string>                               transfer</string>
+    <string>                               TRANSFER</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
