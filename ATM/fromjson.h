@@ -19,6 +19,7 @@ public:
     QJsonObject getObject(const QString& str);
 
 private:
+
     QJsonDocument doc;
     QJsonObject jsOb;
 };

@@ -53,10 +53,10 @@ border: none;
   <widget class="QLabel" name="window_2">
    <property name="geometry">
     <rect>
-     <x>170</x>
-     <y>30</y>
-     <width>431</width>
-     <height>31</height>
+     <x>0</x>
+     <y>0</y>
+     <width>601</width>
+     <height>108</height>
     </rect>
    </property>
    <property name="font">
@@ -67,8 +67,13 @@ border: none;
      <strikeout>false</strikeout>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true">#window_2{
+background-image: url(:/Resources/backgroundTitle.png);
+}</string>
+   </property>
    <property name="text">
-    <string>menu</string>
+    <string>                                 menu</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -105,7 +110,7 @@ text-align: left;
    <property name="geometry">
     <rect>
      <x>50</x>
-     <y>180</y>
+     <y>130</y>
      <width>148</width>
      <height>82</height>
     </rect>
@@ -133,7 +138,7 @@ text-align: center;
    <property name="geometry">
     <rect>
      <x>50</x>
-     <y>270</y>
+     <y>250</y>
      <width>148</width>
      <height>82</height>
     </rect>
@@ -159,8 +164,8 @@ text-align: center;
   <widget class="QPushButton" name="balance">
    <property name="geometry">
     <rect>
-     <x>250</x>
-     <y>180</y>
+     <x>220</x>
+     <y>130</y>
      <width>154</width>
      <height>82</height>
     </rect>
@@ -184,39 +189,11 @@ text-align: center;
  statements</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="payments">
-   <property name="geometry">
-    <rect>
-     <x>250</x>
-     <y>270</y>
-     <width>154</width>
-     <height>82</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>KenVector Future</family>
-     <pointsize>12</pointsize>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">#payments
-{
-background-image: url(:Resources/actionRed.png);
-border: none;
-text-align: center;
-}
-</string>
-   </property>
-   <property name="text">
-    <string>payments</string>
-   </property>
-  </widget>
   <widget class="QPushButton" name="transfer">
    <property name="geometry">
     <rect>
-     <x>430</x>
-     <y>180</y>
+     <x>220</x>
+     <y>250</y>
      <width>154</width>
      <height>82</height>
     </rect>
@@ -243,8 +220,8 @@ text-align: center;
   <widget class="QPushButton" name="other">
    <property name="geometry">
     <rect>
-     <x>430</x>
-     <y>270</y>
+     <x>420</x>
+     <y>190</y>
      <width>154</width>
      <height>82</height>
     </rect>

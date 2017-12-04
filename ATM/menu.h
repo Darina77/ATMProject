@@ -9,32 +9,29 @@ class Menu : public QWidget
 {
     Q_OBJECT
 public:
-        explicit Menu(QWidget *parent = 0);
-        ~Menu();
+
+    explicit Menu(QWidget *parent = 0);
+    ~Menu();
+
 signals:
-    void nextPageIndex(int);
+
+    void nextPageIndex(const int);
     int currentPageIndex();
+
 private slots:
 
     void on_getMoney_clicked();
-
     void on_deposit_clicked();
-
     void on_balance_clicked();
-
     void on_payments_clicked();
-
     void on_transfer_clicked();
-
     void on_other_clicked();
-
     void on_anotherButt_clicked();
-
     void on_cancelButt_clicked();
 
 private:
-        Ui::Menu* _ui;
-        //AtmInput* _ai;
+
+    Ui::Menu* _ui;
 };
 
 #endif // MENU_H

@@ -136,10 +136,10 @@ background-image: url(:/Resources/lineIn.png);
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>340</x>
-     <y>30</y>
-     <width>191</width>
-     <height>20</height>
+     <x>0</x>
+     <y>0</y>
+     <width>611</width>
+     <height>108</height>
     </rect>
    </property>
    <property name="font">
@@ -148,8 +148,16 @@ background-image: url(:/Resources/lineIn.png);
      <pointsize>25</pointsize>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true">#label{
+background-image: url(:/Resources/backgroundTitle.png);
+}</string>
+   </property>
    <property name="text">
-    <string>balance</string>
+    <string>                               balance</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
    </property>
   </widget>
   <widget class="QLabel" name="info_2">

@@ -86,11 +86,11 @@ void GetMoney::catchGetMoney(const bool res, const QString& str)
     }
 }
 
-void GetMoney::catchBanknotesValue(int val)
+void GetMoney::catchBanknotesValue(const int val)
 {
     if(_amount%(val) == 0)
     {
-        getMoney(_amount);
+       getMoney(_amount);
     } else setMessege("Amount must be aliquot to " + QString::number(val));
 }
 

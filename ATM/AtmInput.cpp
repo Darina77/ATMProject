@@ -10,9 +10,7 @@ AtmInput::AtmInput(const QUrl url, QWidget *parent)
      _putMoney(new PutMoney(this)),
      _other(new Other(this)),
      _sma(new SendMoneyAccount(this)),
-     _sma2(new SendMoneyAmount(this)),
-     _pa(new PaymentAccount(this)),
-     _pa2(new PaymentAmount(this))
+     _sma2(new SendMoneyAmount(this))
 {
     qDebug() << "WebSocket server:" << url;
     connect(&m_webSocket, &QWebSocket::connected, this, &AtmInput::onConnected);
@@ -36,8 +34,7 @@ AtmInput::AtmInput(const QUrl url, QWidget *parent)
     connect(_other, &Other::nextPageIndex, this, &AtmInput::setCurrentIndex);
     connect(_sma, &SendMoneyAccount::nextPageIndex, this, &AtmInput::setCurrentIndex);
     connect(_sma2, &SendMoneyAmount::nextPageIndex, this, &AtmInput::setCurrentIndex);
-    connect(_pa, &PaymentAccount::nextPageIndex, this, &AtmInput::setCurrentIndex);
-    connect(_pa2, &PaymentAmount::nextPageIndex, this, &AtmInput::setCurrentIndex);
+
 
     connect(_balance, &Balance::getBalance, this, &AtmInput::tryGetBalance);
     connect(this, &AtmInput::endOperation, _balance, &Balance::catchBalance);
@@ -63,8 +60,6 @@ AtmInput::AtmInput(const QUrl url, QWidget *parent)
     connect(_other,  &Other::currentPageIndex, this, &AtmInput::currentIndex);
     connect(_sma, &SendMoneyAccount::currentPageIndex, this, &AtmInput::currentIndex);
     connect(_sma2, &SendMoneyAmount::currentPageIndex, this, &AtmInput::currentIndex);
-    connect(_pa, &PaymentAccount::currentPageIndex, this, &AtmInput::currentIndex);
-    connect(_pa2, &PaymentAmount::currentPageIndex, this, &AtmInput::currentIndex);
 
 
     addWidget(_login);
@@ -76,8 +71,6 @@ AtmInput::AtmInput(const QUrl url, QWidget *parent)
     addWidget(_other);
     addWidget(_sma);
     addWidget(_sma2);
-    addWidget(_pa);
-    addWidget(_pa2);
     setCurrentIndex(0);
     setFixedSize(_login->size());
 }

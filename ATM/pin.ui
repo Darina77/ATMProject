@@ -332,10 +332,10 @@ border: none;
   <widget class="QLabel" name="action">
    <property name="geometry">
     <rect>
-     <x>280</x>
-     <y>30</y>
-     <width>271</width>
-     <height>51</height>
+     <x>0</x>
+     <y>0</y>
+     <width>601</width>
+     <height>108</height>
     </rect>
    </property>
    <property name="font">
@@ -348,7 +348,7 @@ border: none;
    </property>
    <property name="styleSheet">
     <string notr="true">#action{
-background: none;
+background-image: url(:/Resources/backgroundTitle.png);
 text-align:center;
 }</string>
    </property>

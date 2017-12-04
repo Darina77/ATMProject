@@ -21,8 +21,8 @@ background-image: url(:/Resources/background.png);
   <widget class="QLabel" name="action">
    <property name="geometry">
     <rect>
-     <x>-10</x>
-     <y>90</y>
+     <x>10</x>
+     <y>100</y>
      <width>371</width>
      <height>51</height>
     </rect>
@@ -458,10 +458,10 @@ border: none;
   <widget class="QLabel" name="window_2">
    <property name="geometry">
     <rect>
-     <x>170</x>
-     <y>20</y>
-     <width>431</width>
-     <height>31</height>
+     <x>0</x>
+     <y>0</y>
+     <width>601</width>
+     <height>108</height>
     </rect>
    </property>
    <property name="font">
@@ -472,8 +472,13 @@ border: none;
      <strikeout>false</strikeout>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true">#window_2{
+background-image: url(:/Resources/backgroundTitle.png);
+}</string>
+   </property>
    <property name="text">
-    <string>transfer</string>
+    <string>                               transfer</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -528,6 +533,36 @@ background-image: url(:/Resources/lineIn.png);
    </property>
    <property name="text">
     <string/>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="action_2">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>190</y>
+     <width>121</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>KenVector Future</family>
+     <pointsize>25</pointsize>
+     <underline>false</underline>
+     <strikeout>false</strikeout>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#action{
+background: none;
+text-align:center;
+}</string>
+   </property>
+   <property name="text">
+    <string>UAH</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>

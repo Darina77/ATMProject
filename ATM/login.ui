@@ -590,10 +590,10 @@ border: none;
   <widget class="QLabel" name="window_2">
    <property name="geometry">
     <rect>
-     <x>190</x>
-     <y>30</y>
-     <width>431</width>
-     <height>31</height>
+     <x>0</x>
+     <y>0</y>
+     <width>601</width>
+     <height>108</height>
     </rect>
    </property>
    <property name="font">
@@ -604,8 +604,13 @@ border: none;
      <strikeout>false</strikeout>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true">#window_2{
+background-image: url(:/Resources/backgroundTitle.png);
+}</string>
+   </property>
    <property name="text">
-    <string>log in</string>
+    <string>                                   log in</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>

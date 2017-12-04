@@ -8,15 +8,22 @@ class PutMoney: public QWidget
 {
  Q_OBJECT
  public:
+
     explicit PutMoney(QWidget *parent = 0);
     ~PutMoney();
+
  signals:
-    void nextPageIndex(int);
+
+    void nextPageIndex(const int);
     int currentPageIndex();
     void putMoney(const int);
+
  public slots:
+
     void catchPutMoney(const bool, const QString&);
+
  private slots:
+
     void on_pushButton_1_clicked();
     void on_pushButton_2_clicked();
     void on_pushButton_3_clicked();
@@ -27,10 +34,12 @@ class PutMoney: public QWidget
     void on_pushButton_8_clicked();
     void on_pushButton_9_clicked();
     void on_pushButton_0_clicked();
+
     void on_okAct_clicked();
     void on_eraseAct_clicked();
     void on_cancelAct_clicked();
     void on_cancelButt_clicked();
+
  private:
     Ui::PutMoney* _ui;
     QString _strAmount;

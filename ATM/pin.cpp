@@ -92,7 +92,7 @@ void Pin::catchRightPin(const bool res, const QString&)
     }
 }
 
-void Pin::catchBlocked(bool blocked){
+void Pin::catchBlocked(const bool blocked){
     if (!blocked){
         if (_count == limit){
            emit getPin(_pass);

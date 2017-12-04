@@ -19,5 +19,6 @@
         <file>Resources/eraseActP.png</file>
         <file>Resources/okActP.png</file>
         <file>Resources/padButtonShortP.png</file>
+		<file>Resources/backgroundTitle.png</file>
     </qresource>
 </RCC>

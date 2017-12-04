@@ -22,7 +22,7 @@ background-image: url(:/Resources/background.png);
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>90</y>
+     <y>100</y>
      <width>371</width>
      <height>51</height>
     </rect>
@@ -458,10 +458,10 @@ border: none;
   <widget class="QLabel" name="window_2">
    <property name="geometry">
     <rect>
-     <x>190</x>
-     <y>30</y>
-     <width>431</width>
-     <height>31</height>
+     <x>-10</x>
+     <y>0</y>
+     <width>631</width>
+     <height>108</height>
     </rect>
    </property>
    <property name="font">
@@ -472,8 +472,13 @@ border: none;
      <strikeout>false</strikeout>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true">#window_2{
+background-image: url(:/Resources/backgroundTitle.png);
+}</string>
+   </property>
    <property name="text">
-    <string>Withdrowal</string>
+    <string>                            Withdrowal</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -534,6 +539,36 @@ text-align:center;
    </property>
    <property name="text">
     <string/>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="action_2">
+   <property name="geometry">
+    <rect>
+     <x>310</x>
+     <y>200</y>
+     <width>101</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>KenVector Future</family>
+     <pointsize>25</pointsize>
+     <underline>false</underline>
+     <strikeout>false</strikeout>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#action{
+background: none;
+text-align:center;
+}</string>
+   </property>
+   <property name="text">
+    <string>UAH</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>

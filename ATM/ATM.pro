@@ -38,8 +38,6 @@ SOURCES += \
     other.cpp \
     sendmoneyaccount.cpp \
     sendmoneyamount.cpp \
-    paymentaccount.cpp \
-    paymentamount.cpp \
     fromjson.cpp \
 
 
@@ -56,20 +54,15 @@ HEADERS += \
     other.h \
     sendmoneyaccount.h \
     sendmoneyamount.h \
-    paymentaccount.h \
-    paymentamount.h \
     fromjson.h \
 
 
 FORMS += \
     balance.ui \
-    choose.ui \
     getmoney.ui \
     login.ui \
     menu.ui \
     other.ui \
-    paymentAccount.ui \
-    paymentAmount.ui \
     pin.ui \
     putmoney.ui \
     sendmoneyAccount.ui \
