@@ -41,6 +41,7 @@ class PutMoney: public QWidget
     void on_cancelButt_clicked();
 
  private:
+
     Ui::PutMoney* _ui;
     QString _strAmount;
 

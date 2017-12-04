@@ -2,6 +2,7 @@
 
 AtmInput::AtmInput(const QUrl url, QWidget *parent)
    : QStackedWidget(parent), _userInfo(""),  m_url(url), _sendNum(),
+     checkBlock(false), last_resp_res(false),
      _login(new Login(this)),
      _pin(new Pin(this)),
      _menu(new Menu(this)),

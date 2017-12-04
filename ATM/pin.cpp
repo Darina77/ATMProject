@@ -69,6 +69,12 @@ void Pin::on_pushButton_0_clicked()
 
 void Pin::on_okAct_clicked()
 {
+    if (_tryCount >= 3)
+    {
+        emit blockUser();
+        setMessege("You are blocked");
+        return;
+    }
     setMessege("Wait a minute...");
     emit tryBlocked();
 }
@@ -137,16 +143,6 @@ void Pin::on_cancelButt_clicked()
     _setedPass = "";
     _ui->lineEdit->setText(_setedPass);
     _count = 0;
-}
-
-bool Pin::sendPass()
-{
-    if (_tryCount >= 3)
-    {
-        emit blockUser();
-        return false;
-    }
-    return true;
 }
 
 void Pin::setMessege(const QString& messege)

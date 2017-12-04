@@ -54,7 +54,6 @@ private:
     const int limit = 4;
 
     void enterNumber(char num);
-    bool sendPass();
     void setMessege(const QString&);
 };
 #endif // PIN_H

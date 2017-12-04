@@ -72,7 +72,7 @@ public slots:
     QString _sendNum;
 
     bool last_resp_res;
-    bool start;
+    bool checkBlock;
 
     const int banknotes = 100;
 
