@@ -15,9 +15,11 @@ void Balance::catchBalance(const bool res, QString& str, const QString& reason)
         if (str.length() >= 3)
         {
             str = str.insert((str.length()-2), '.');
-        } else {
+        } else if (str.length() == 2){
             str = "0." + str;
-        }
+        } else if (str.length() == 1){
+            str = "0.0" + str;
+        } else str = "0";
         _ui->amount->setText(str);
     }
     else
