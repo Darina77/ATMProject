@@ -67,7 +67,8 @@ UserData* DBAccessor::takeUD(QString &cardNum, void *borrower)
                     jo["owner"].toString(),
                     QDate::fromString(jo["date"].toString()),
                     jo["daemons"].toString(),
-                    moneyMap
+                    moneyMap,
+                    jo["blocked"].toBool()
                     );
         _mutexMap[ud->cardNum()]=borrower;
         return ud;
@@ -85,8 +86,11 @@ void DBAccessor::updateUD(UserData* ud)
 
 void DBAccessor::freeUD(UserData *ud)
 {
-    _mutexMap.remove(ud->cardNum());
-    delete ud;
+    if (ud!=0)
+    {
+        _mutexMap.remove(ud->cardNum());
+        delete ud;
+    }
 }
 
 bool DBAccessor::isBeingUsed(const QString &cardNum)

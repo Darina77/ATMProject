@@ -14,6 +14,7 @@ public:
     Integer& operator+=(const Integer& that);
     Integer& operator*=(const Integer& that);
     Integer& operator -=(const Integer& that);
+    //Integer& operator = (const Integer& that);
     Integer& setVal(const QString& that);
 
     QString toString() const;

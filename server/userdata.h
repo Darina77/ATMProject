@@ -12,8 +12,8 @@
 
 class UserData {
 public:
-    UserData(QString cardNum, QString pin, QString owner, QDate date, QString daemons, QMap<QString, Integer> money)
-        :_cardNum(cardNum), _pin(pin), _owner(owner), _date(date), _daemons(daemons), _money(money)
+    UserData(QString cardNum, QString pin, QString owner, QDate date, QString daemons, QMap<QString, Integer> money, bool blocked)
+        :_cardNum(cardNum), _pin(pin), _owner(owner), _date(date), _daemons(daemons), _money(money), _blocked(blocked)
     {
 
         if (!_money.contains("UAH"))
@@ -29,11 +29,14 @@ public:
     const QString& daemons() const {return _daemons;}
     const QMap<QString, Integer>& money() const {return _money;}
 
+    bool isBlocked() const {return _blocked;}
+    void setBlocked(bool in) {_blocked=in;}
+
     void setPin(QString in) { _pin = in;}
     void setOwner(QString in) {_owner = in;}
     void setDate(QDate in) {_date = in;}
     void setDaemons(QString in) {_daemons = in;}
-    void setMoney(QString key, QString val) {/*if (_money.contains(key)) */_money[key].setVal(val);}
+    void setMoney(QString key, Integer val) {/*if (_money.contains(key)) */_money[key].setVal(val);}
 
     QString toJson()
     {
@@ -42,6 +45,7 @@ public:
     QJsonObject toJsonObject()
     {
         QJsonObject jo;
+        jo["blocked"]=isBlocked();
         jo["cardNum"]=cardNum();
         jo["pin"]=pin();
         jo["owner"]=owner();
@@ -65,7 +69,7 @@ private:
     QDate _date;
     QString _daemons;
     QMap<QString,Integer> _money;
-
+    bool _blocked;
 };
 
 

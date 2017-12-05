@@ -8,6 +8,8 @@
 #include <QJsonArray>
 
 #include <stdexcept>
+
+#include <QDebug>
 /*
 форматы запроса атм
 
@@ -26,8 +28,10 @@ inf вся инфа
 */
 #define CHECK_LUD \
     \
-    if(_lud==0) return errMess("ExecutionError: u need to chk smth first");\
+    if(_lud==0) return errMess("ExecutionError: u need to {chc (some card)} first");\
+    if (_lud->isBlocked()) return errMess("Card is blocked");\
     if (!_rigthPin) return errMess ("Wrong pin");
+
 
 
 MyParser::MyParser(DBAccessor *db, QObject *parent) : QObject(parent), _db (db), _lud(0)
@@ -57,11 +61,29 @@ QString MyParser ::parse(QString in)
 
     try {
         QString comp = slist[0];
-        if (comp == "chk")
+        if (comp == "che")
         {
-            if (slist.length()>2)
-            return check(slist[1], slist[2]);
-            else throw std::length_error("calling check");
+            if (slist.length()>1)
+                return checkExistence(slist[1]);
+            else throw std::length_error("calling check existence");
+        }
+        else if (comp == "blk")
+        {
+            if (slist.length()>1)
+                return blockCard(slist[1]);
+            else throw std::length_error("calling block card");
+        }else if (comp == "chc")
+        {
+            if (slist.length()>1)
+            {
+                if (!slist[1].isEmpty())
+                    return checkCard(slist[1]);
+            }else throw std::length_error("calling check card");
+        } else if (comp == "chp")
+        {
+            if (slist.length()>1)
+                return checkPin(slist[1]);
+            else throw std::length_error("calling check pin");
         }else if (comp == "inf")
             return info();
         else if (comp == "chb"){
@@ -83,7 +105,10 @@ QString MyParser ::parse(QString in)
             return
 "форматы запроса атм\n\
 \n\
-(+)chk (номер)(пин) - сверить номер и пин с тем что в базе(check)\n\
+(+)blk (true/false) заблокировать/разблокировать карточку\n\
+(+)che (номер) проверить существование карточки не запоминая(check existence)\n\
+(+)chc (номер) существует ли карточка № номер (check card)\n\
+(+)chp (pin)  проверить подходит ли пин(check pin)\n\
 (-)ada (desu) добавить демона(add daemon, daemon as string)\n\
 (-)uda (desu) (desu) изменить демону (update daemon)\n\
 (-)kda (desu) убить демона (kill daemon,  salve the prist)\n\
@@ -105,8 +130,56 @@ QString MyParser ::parse(QString in)
     return errMess("Parsing error(3) : undef operation");
 }
 
+QString MyParser::blockCard(QString in)
+{
+    QJsonObject jo;
+    jo["res"]=true;
 
-QString MyParser::check(QString number, QString pin){
+    if (_lud==0)
+        return errMess("Plz, `chc` the card first");
+
+    if (in=="false")
+    {
+        if (_lud->isBlocked())
+        {
+            _lud->setBlocked(false);
+            _db->updateUD(_lud);
+        }
+        return QJsonDocument(jo).toJson();
+    }
+    if (!_lud->isBlocked())
+    {
+        _lud->setBlocked(true);
+        _db->updateUD(_lud);
+
+        _db->freeUD(_lud);
+        _lud=0;
+    }
+    return QJsonDocument(jo).toJson();
+}
+
+QString MyParser::checkExistence(QString number)
+{
+    if (_db->isBeingUsed(number))
+        return errMess("This card is currently being used. Wait, please, for a while.");
+
+    UserData* ud = _db->takeUD(number, this);
+    QString ans("");
+
+    if (ud==0) ans= errMess("This card does not exist.");
+    else if (ud->isBlocked()) ans= errMess("This card is blocked.");
+    _db->freeUD(ud);
+    if(ans.isEmpty())
+    {
+        QJsonObject jo;
+        jo["res"] = true;
+        return QJsonDocument(jo).toJson();
+    }
+    return ans;
+}
+
+
+QString MyParser::checkCard(QString number){
     _rigthPin=false;
     if (_lud == 0 || number!=_lud->cardNum()){
         if (_lud!=0)
@@ -117,7 +190,23 @@ QString MyParser::check(QString number, QString pin){
     if (_lud==0)
     {
         return errMess("Can't find such card number OR this card is currently using");
+    } else if (_lud->isBlocked())
+    {
+        _db->freeUD(_lud);
+        _lud=0;
+        return errMess("This card is blocked");
     }
+
+    QJsonObject jo;
+    jo["res"]=true;
+    return QJsonDocument(jo).toJson();
+}
+
+QString MyParser::checkPin(QString pin)
+{
+    if (_lud==0)
+        return errMess("Check card first");
+
     if (pin == _lud->pin())
     {
         _rigthPin=true;
@@ -127,7 +216,6 @@ QString MyParser::check(QString number, QString pin){
         jd.setObject(jo);
         return jd.toJson();
     }
-
     return errMess("Wrong pin");
 }
 
@@ -164,7 +252,7 @@ QString MyParser::withdrow(QString valueType, QString valueAmount)
         return errMess("Not enough money");
 
     curM-=aimedWdw;
-    _lud->setMoney(valueType, curM.toString());
+    _lud->setMoney(valueType, curM);
     _db->updateUD(_lud);
 
     QJsonObject jo;
@@ -179,7 +267,7 @@ QString MyParser::putMoney(QString valueType, QString valueAmount)
 
     if(! _lud->money().contains(valueType))
     {
-        _lud->setMoney(valueType, valueAmount);
+        _lud->setMoney(valueType, Integer(valueAmount));
         _db->updateUD(_lud);
         QJsonObject jo;
         jo["res"]=true;
@@ -188,8 +276,12 @@ QString MyParser::putMoney(QString valueType, QString valueAmount)
     }
 
     Integer was(_lud->money()[valueType]);
+    //qDebug()<<"(putting money) was:"<<was;
+    //qDebug()<<"adding "<<valueAmount;
     was+=Integer(valueAmount);
-    _lud->setMoney(valueType, was.toString());
+    //qDebug() <<"newSum:"<<was;
+    _lud->setMoney(valueType, was);
+
     _db->updateUD(_lud);
 
     QJsonObject jo;
@@ -210,7 +302,7 @@ QString MyParser::transfer(QString card, QString valueType, QString valAmount)
                 QJsonDocument::fromJson(str.toLatin1()).object();
         if (! withrowed["res"].toBool())
         {
-            QString ans("Withdrowing you account failure:\n\t");
+            QString ans("");
             ans.append(withrowed["reason"].toString());
             return errMess(ans);
         }

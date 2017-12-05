@@ -35,6 +35,13 @@ Integer& Integer::operator+=(const Integer& that)
     for (int i=0; i<size; ++i)
         _v[i]+=that._v[i];
 
+    if (size<that._v.size())
+    {
+        _v.resize(that._v.size());
+        for (int i=size; i<that._v.size(); ++i)
+            _v[i]=that._v[i];
+    }
+
     Integer::fit(_v);
     return *this;
 }
@@ -89,6 +96,13 @@ Integer& Integer::operator -=(const Integer& that)
     fit(that._v);
     return *this;
 }
+
+/*Integer &Integer::operator =(const Integer &that)
+{
+    setVal(that.toString());
+
+    return *this;
+}*/
 Integer& Integer::setVal(const QString& that)
 {
     Integer in(that);
@@ -138,33 +152,38 @@ Integer::operator QString() const
 }
 bool Integer::operator <(const Integer& in) const
 {
+    /*if (_v.length()==in._v.length())
+    {
+        if (_v[_v.length()-1]<in._v[_v.length()-1])
+            return true;
+        else
+            return false;
+    }
+    */
     if (_v.length()< in._v.length())
         return true;
     else if (_v.length()>in._v.length())
         return false;
-    int i=0;
-    while((i<_v.length()))
-        if (_v[i]==in._v[i]) ++i;
+    int i=_v.length()-1;
+    while(i)
+        if (_v[i]==in._v[i]) --i;
         else break;
-    if (i!=_v.length())
-        if (_v[i]<in._v[i])
-            return true;
+    if (_v[i]<in._v[i])
+        return true;
     return false;
 }
 bool Integer::operator >(const Integer& in) const
 {
     if (_v.length()> in._v.length())
         return true;
-    else if (_v.length()< in._v.length())
+    else if (_v.length()<in._v.length())
         return false;
-
-    int i=0;
-    while((i<_v.length()))
-        if (_v[i]==in._v[i]) ++i;
+    int i=_v.length()-1;
+    while(i)
+        if (_v[i]==in._v[i]) --i;
         else break;
-    if (i!=_v.length())
-        if (_v[i]>in._v[i])
-            return true;
+    if (_v[i]>in._v[i])
+        return true;
     return false;
 }
 bool Integer::operator ==(const Integer& in) const

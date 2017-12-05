@@ -39,13 +39,18 @@ private:
     UserData* _lud;
     bool _rigthPin;
 
-    QString check(QString number, QString pin);
+    //QString isBlocked(QString )
+    QString blockCard(QString);
+    QString checkExistence(QString number);
+    QString checkCard(QString number);
+    QString checkPin(QString pin);
     QString info();
     QString checkBalance();
     QString withdrow(QString valueType, QString valueAmount);
     QString putMoney(QString valueType, QString valueAmount);
     QString transfer(QString card, QString valueType, QString valAmount);
     QString errMess(QString);
+
 };
 
 #endif // MYPARSER_H

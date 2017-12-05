@@ -62,7 +62,7 @@ int main(int argc, char *argv[])
     AtmServer server(1234);
     /*Integer i ("1024");
     Integer i2("102");
-    i-=i2;
+    i+=Integer("2048");
     qDebug() << "i1:"<<i.toString();
     qDebug() << "i2:"<<i2;
     */
