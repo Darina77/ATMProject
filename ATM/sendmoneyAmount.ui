@@ -518,15 +518,15 @@ background-image: url(:/Resources/lineIn.png);
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>140</y>
-     <width>301</width>
+     <y>150</y>
+     <width>561</width>
      <height>21</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <family>KenVector Future</family>
-     <pointsize>14</pointsize>
+     <pointsize>12</pointsize>
      <underline>false</underline>
      <strikeout>false</strikeout>
     </font>

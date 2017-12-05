@@ -638,7 +638,7 @@ background-image: url(:/Resources/backgroundTitle.png);
    <property name="font">
     <font>
      <family>KenVector Future</family>
-     <pointsize>14</pointsize>
+     <pointsize>10</pointsize>
      <underline>false</underline>
      <strikeout>false</strikeout>
     </font>

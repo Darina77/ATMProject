@@ -12,8 +12,13 @@ void Balance::catchBalance(const bool res, QString& str, const QString& reason)
 {
     _ui->info->setText("Current balance");
     if(res){
-        str = str.insert((str.length()-2), '.');
-       _ui->amount->setText(str);
+        if (str.length() >= 3)
+        {
+            str = str.insert((str.length()-2), '.');
+        } else {
+            str = "0." + str;
+        }
+        _ui->amount->setText(str);
     }
     else
     {

@@ -22,6 +22,6 @@
 		<file>Resources/backgroundTitle.png</file>
     </qresource>
 	<qresource prefix="fonts">
-		<file>kenpixel.ttf</file>
+		<file>kenvector_future.ttf</file>
 	</qresource>
 </RCC>

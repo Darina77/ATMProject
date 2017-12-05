@@ -140,8 +140,11 @@ void Pin::on_cancelButt_clicked()
 {
     _pass =  "";
     _setedPass = "";
+
     _ui->lineEdit->setText(_setedPass);
     _count = 0;
+
+    nextPageIndex(0);
 }
 
 void Pin::setMessege(const QString& messege)

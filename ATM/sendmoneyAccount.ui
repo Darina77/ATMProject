@@ -538,7 +538,7 @@ text-align:center;
 }</string>
    </property>
    <property name="text">
-    <string>card number</string>
+    <string/>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>

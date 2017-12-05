@@ -27,7 +27,7 @@ background-image: url(:/Resources/background.png);
    <property name="geometry">
     <rect>
      <x>-10</x>
-     <y>80</y>
+     <y>90</y>
      <width>371</width>
      <height>51</height>
     </rect>
@@ -495,7 +495,7 @@ background-image: url(:/Resources/backgroundTitle.png);
    </property>
    <property name="geometry">
     <rect>
-     <x>80</x>
+     <x>40</x>
      <y>180</y>
      <width>210</width>
      <height>75</height>
@@ -549,7 +549,7 @@ background-image: url(:/Resources/lineIn.png);
   <widget class="QLabel" name="action_2">
    <property name="geometry">
     <rect>
-     <x>300</x>
+     <x>250</x>
      <y>190</y>
      <width>111</width>
      <height>51</height>
