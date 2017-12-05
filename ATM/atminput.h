@@ -42,7 +42,7 @@ signals:
     void closed();
     void banknotesValue(int);
     void getBalance();
-    void endOperation(const bool, const QString&, const QString&);
+    void endOperation(const bool, QString&, const QString&);
 
 public slots:
 

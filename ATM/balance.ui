@@ -115,7 +115,7 @@ border: none;
    <property name="font">
     <font>
      <family>KenVector Future</family>
-     <pointsize>25</pointsize>
+     <pointsize>20</pointsize>
      <weight>75</weight>
      <bold>true</bold>
     </font>

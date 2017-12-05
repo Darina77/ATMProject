@@ -22,7 +22,7 @@ signals:
 
 public slots:
 
-    void catchBalance(const bool, const QString&, const QString&);
+    void catchBalance(const bool, QString&, const QString&);
 
 private slots:
 

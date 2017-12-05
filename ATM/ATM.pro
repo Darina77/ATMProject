@@ -38,7 +38,7 @@ SOURCES += \
     other.cpp \
     sendmoneyaccount.cpp \
     sendmoneyamount.cpp \
-    fromjson.cpp \
+    fromjson.cpp
 
 
 HEADERS += \
@@ -54,7 +54,7 @@ HEADERS += \
     other.h \
     sendmoneyaccount.h \
     sendmoneyamount.h \
-    fromjson.h \
+    fromjson.h
 
 
 FORMS += \

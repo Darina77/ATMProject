@@ -8,13 +8,12 @@ Balance::Balance(QWidget *parent)
     emit getBalance();
 }
 
-void Balance::catchBalance(const bool res, const QString& str, const QString& reason)
+void Balance::catchBalance(const bool res, QString& str, const QString& reason)
 {
     _ui->info->setText("Current balance");
     if(res){
-        float val = str.toFloat();
-        val /= 100;
-       _ui->amount->setText(QString::number(val));
+        str = str.insert((str.length()-2), '.');
+       _ui->amount->setText(str);
     }
     else
     {

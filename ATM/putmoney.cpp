@@ -84,11 +84,13 @@ void PutMoney::on_pushButton_0_clicked()
 
 void PutMoney::on_okAct_clicked()
 {
-    _amount = _strAmount.toInt();
-    if (_amount <= _amountLimit){
-        setMessege("Wait a minute...");
-        emit putMoney(_amount*100);
-    } else setMessege("Maximum amount " + QString::number(_amountLimit));
+    if(_strAmount.length() > 0){
+        _amount = _strAmount.toInt();
+        if (_amount <= _amountLimit){
+            setMessege("Wait a minute...");
+            emit putMoney(_amount*100);
+        } else setMessege("Maximum amount " + QString::number(_amountLimit));
+    } else setMessege("Enter the amount");
 }
 
 void PutMoney::catchPutMoney(const bool res, const QString&, const QString& reason)

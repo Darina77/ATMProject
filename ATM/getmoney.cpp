@@ -66,11 +66,13 @@ void GetMoney::on_pushButton_0_clicked()
 
 void GetMoney::on_okAct_clicked()
 {
-    _amount = _strAmount.toInt();
-    if (_amount <= _amountLimit){
-        setMessege("Wait a second...");
-        tryBanknotesValue();    
-    } else setMessege("Maximum amount " + QString::number(_amountLimit));
+    if(_strAmount.length() > 0){
+        _amount = _strAmount.toInt();
+        if (_amount <= _amountLimit){
+            setMessege("Wait a second...");
+            tryBanknotesValue();
+        } else setMessege("Maximum amount " + QString::number(_amountLimit));
+    } else setMessege("Enter the amount");
 }
 
 void GetMoney::catchGetMoney(const bool res, const QString& str, const QString& reason)
